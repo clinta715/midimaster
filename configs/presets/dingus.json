@@ -1,0 +1,11 @@
+{
+  "bars": 32,
+  "complexity": "balanced",
+  "filename_template": "{genre}_{mood}_{tempo}_{bars}",
+  "genre": "pop",
+  "mood": "happy",
+  "rhythms_db_path": "data/rhythms_db.json",
+  "tempo": 120,
+  "time_signature": "4/4",
+  "version": "1.0"
+}

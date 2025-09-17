@@ -1,0 +1,338 @@
+{
+  "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_808.mid": {
+    "file_path": "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_808.mid",
+    "file_size": 192,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_Bass Guitar.mid": {
+    "file_path": "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_Bass Guitar.mid",
+    "file_size": 113,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_Bells.mid": {
+    "file_path": "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_Bells.mid",
+    "file_size": 165,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_Clap.mid": {
+    "file_path": "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_Clap.mid",
+    "file_size": 99,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_Guitar.mid": {
+    "file_path": "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_Guitar.mid",
+    "file_size": 459,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_HiHat.mid": {
+    "file_path": "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_HiHat.mid",
+    "file_size": 456,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_Kick.mid": {
+    "file_path": "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_Kick.mid",
+    "file_size": 154,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_OpenHat.mid": {
+    "file_path": "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_OpenHat.mid",
+    "file_size": 117,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_Perc.mid": {
+    "file_path": "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_Perc.mid",
+    "file_size": 147,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_Piano Chords.mid": {
+    "file_path": "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_Piano Chords.mid",
+    "file_size": 415,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_Piano.mid": {
+    "file_path": "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_Piano.mid",
+    "file_size": 868,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\02_Panoramic_Am_148bpm_808.mid": {
+    "file_path": "reference_midis\\midi4\\02_Panoramic_Am_148bpm_808.mid",
+    "file_size": 284,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\02_Panoramic_Am_148bpm_Clap.mid": {
+    "file_path": "reference_midis\\midi4\\02_Panoramic_Am_148bpm_Clap.mid",
+    "file_size": 99,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\02_Panoramic_Am_148bpm_Guitar.mid": {
+    "file_path": "reference_midis\\midi4\\02_Panoramic_Am_148bpm_Guitar.mid",
+    "file_size": 174,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\02_Panoramic_Am_148bpm_HiHat.mid": {
+    "file_path": "reference_midis\\midi4\\02_Panoramic_Am_148bpm_HiHat.mid",
+    "file_size": 456,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\02_Panoramic_Am_148bpm_Kick.mid": {
+    "file_path": "reference_midis\\midi4\\02_Panoramic_Am_148bpm_Kick.mid",
+    "file_size": 244,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\02_Panoramic_Am_148bpm_OpenHat.mid": {
+    "file_path": "reference_midis\\midi4\\02_Panoramic_Am_148bpm_OpenHat.mid",
+    "file_size": 117,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\02_Panoramic_Am_148bpm_Pad.mid": {
+    "file_path": "reference_midis\\midi4\\02_Panoramic_Am_148bpm_Pad.mid",
+    "file_size": 174,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\02_Panoramic_Am_148bpm_Perc.mid": {
+    "file_path": "reference_midis\\midi4\\02_Panoramic_Am_148bpm_Perc.mid",
+    "file_size": 106,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\02_Panoramic_Am_148bpm_Piano.mid": {
+    "file_path": "reference_midis\\midi4\\02_Panoramic_Am_148bpm_Piano.mid",
+    "file_size": 1067,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\02_Panoramic_Am_148bpm_Synth Bells.mid": {
+    "file_path": "reference_midis\\midi4\\02_Panoramic_Am_148bpm_Synth Bells.mid",
+    "file_size": 641,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_808.mid": {
+    "file_path": "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_808.mid",
+    "file_size": 429,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Bass Guitar.mid": {
+    "file_path": "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Bass Guitar.mid",
+    "file_size": 120,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Bells.mid": {
+    "file_path": "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Bells.mid",
+    "file_size": 260,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Clap 2.mid": {
+    "file_path": "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Clap 2.mid",
+    "file_size": 116,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Clap.mid": {
+    "file_path": "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Clap.mid",
+    "file_size": 99,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Flute.mid": {
+    "file_path": "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Flute.mid",
+    "file_size": 247,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Guitar.mid": {
+    "file_path": "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Guitar.mid",
+    "file_size": 172,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_HiHat.mid": {
+    "file_path": "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_HiHat.mid",
+    "file_size": 344,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Kalimba.mid": {
+    "file_path": "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Kalimba.mid",
+    "file_size": 270,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Kick.mid": {
+    "file_path": "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Kick.mid",
+    "file_size": 209,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_OpenHat.mid": {
+    "file_path": "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_OpenHat.mid",
+    "file_size": 83,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Perc.mid": {
+    "file_path": "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Perc.mid",
+    "file_size": 81,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Piano.mid": {
+    "file_path": "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Piano.mid",
+    "file_size": 472,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Snare.mid": {
+    "file_path": "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Snare.mid",
+    "file_size": 100,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_808.mid": {
+    "file_path": "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_808.mid",
+    "file_size": 231,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_Clap.mid": {
+    "file_path": "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_Clap.mid",
+    "file_size": 99,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_Flute.mid": {
+    "file_path": "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_Flute.mid",
+    "file_size": 201,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_HiHat 2.mid": {
+    "file_path": "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_HiHat 2.mid",
+    "file_size": 125,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_HiHat.mid": {
+    "file_path": "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_HiHat.mid",
+    "file_size": 336,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_KIck.mid": {
+    "file_path": "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_KIck.mid",
+    "file_size": 178,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_OpenHat 2.mid": {
+    "file_path": "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_OpenHat 2.mid",
+    "file_size": 86,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_OpenHat.mid": {
+    "file_path": "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_OpenHat.mid",
+    "file_size": 83,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_Pad.mid": {
+    "file_path": "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_Pad.mid",
+    "file_size": 285,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_Perc.mid": {
+    "file_path": "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_Perc.mid",
+    "file_size": 81,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_Piano.mid": {
+    "file_path": "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_Piano.mid",
+    "file_size": 522,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_Snare.mid": {
+    "file_path": "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_Snare.mid",
+    "file_size": 98,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\05_Panoramic_Fm_140bpm_808.mid": {
+    "file_path": "reference_midis\\midi4\\05_Panoramic_Fm_140bpm_808.mid",
+    "file_size": 374,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\05_Panoramic_Fm_140bpm_Guitar 2.mid": {
+    "file_path": "reference_midis\\midi4\\05_Panoramic_Fm_140bpm_Guitar 2.mid",
+    "file_size": 339,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\05_Panoramic_Fm_140bpm_Guitar.mid": {
+    "file_path": "reference_midis\\midi4\\05_Panoramic_Fm_140bpm_Guitar.mid",
+    "file_size": 649,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\05_Panoramic_Fm_140bpm_HiHat.mid": {
+    "file_path": "reference_midis\\midi4\\05_Panoramic_Fm_140bpm_HiHat.mid",
+    "file_size": 752,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\05_Panoramic_Fm_140bpm_Kick.mid": {
+    "file_path": "reference_midis\\midi4\\05_Panoramic_Fm_140bpm_Kick.mid",
+    "file_size": 98,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\05_Panoramic_Fm_140bpm_OpenHat.mid": {
+    "file_path": "reference_midis\\midi4\\05_Panoramic_Fm_140bpm_OpenHat.mid",
+    "file_size": 92,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\05_Panoramic_Fm_140bpm_Perc.mid": {
+    "file_path": "reference_midis\\midi4\\05_Panoramic_Fm_140bpm_Perc.mid",
+    "file_size": 90,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\05_Panoramic_Fm_140bpm_Piano.mid": {
+    "file_path": "reference_midis\\midi4\\05_Panoramic_Fm_140bpm_Piano.mid",
+    "file_size": 365,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  },
+  "reference_midis\\midi4\\05_Panoramic_Fm_140bpm_Snare.mid": {
+    "file_path": "reference_midis\\midi4\\05_Panoramic_Fm_140bpm_Snare.mid",
+    "file_size": 118,
+    "analysis_time": 0.1,
+    "status": "analyzed"
+  }
+}

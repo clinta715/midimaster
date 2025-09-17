@@ -1,0 +1,665 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic MIDI Analysis Report</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .section {
+            padding: 30px;
+            border-bottom: 1px solid #eee;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .stat-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid #667eea;
+        }
+        .metric {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+        }
+        .file-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .file-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            align-items: center;
+        }
+        .success { color: #28a745; }
+        .error { color: #dc3545; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎵 Basic MIDI Analysis Report</h1>
+            <p>Analysis of 56 MIDI files from midi4</p>
+            <p>Generated on 2025-09-14 14:36:16</p>
+        </div>
+
+        <div class="section">
+            <h2>📊 Analysis Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="metric">56</div>
+                    <div>Successful Analyses</div>
+                </div>
+                <div class="stat-card">
+                    <div class="metric">0</div>
+                    <div>Failed Analyses</div>
+                </div>
+                <div class="stat-card">
+                    <div class="metric">100.0%</div>
+                    <div>Success Rate</div>
+                </div>
+                <div class="stat-card">
+                    <div class="metric">1,344</div>
+                    <div>Total Notes</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📁 Analyzed Files (56)</h2>
+            <div class="file-list">
+                
+                <div class="file-item">
+                    <div>
+                        <strong>01_Panoramic_Dm_160bpm_808.mid</strong>
+                        <br>
+                        <small>192 bytes | 0.00s | 13 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>01_Panoramic_Dm_160bpm_Bass Guitar.mid</strong>
+                        <br>
+                        <small>113 bytes | 0.00s | 5 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>01_Panoramic_Dm_160bpm_Bells.mid</strong>
+                        <br>
+                        <small>165 bytes | 0.00s | 12 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>01_Panoramic_Dm_160bpm_Clap.mid</strong>
+                        <br>
+                        <small>99 bytes | 0.00s | 4 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>01_Panoramic_Dm_160bpm_Kick.mid</strong>
+                        <br>
+                        <small>154 bytes | 0.00s | 11 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>01_Panoramic_Dm_160bpm_Guitar.mid</strong>
+                        <br>
+                        <small>459 bytes | 0.00s | 48 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>01_Panoramic_Dm_160bpm_HiHat.mid</strong>
+                        <br>
+                        <small>456 bytes | 0.00s | 49 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>01_Panoramic_Dm_160bpm_OpenHat.mid</strong>
+                        <br>
+                        <small>117 bytes | 0.00s | 6 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>01_Panoramic_Dm_160bpm_Perc.mid</strong>
+                        <br>
+                        <small>147 bytes | 0.00s | 10 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>02_Panoramic_Am_148bpm_808.mid</strong>
+                        <br>
+                        <small>284 bytes | 0.00s | 26 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>01_Panoramic_Dm_160bpm_Piano Chords.mid</strong>
+                        <br>
+                        <small>415 bytes | 0.00s | 42 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>02_Panoramic_Am_148bpm_Clap.mid</strong>
+                        <br>
+                        <small>99 bytes | 0.00s | 4 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>01_Panoramic_Dm_160bpm_Piano.mid</strong>
+                        <br>
+                        <small>868 bytes | 0.01s | 100 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>02_Panoramic_Am_148bpm_HiHat.mid</strong>
+                        <br>
+                        <small>456 bytes | 0.00s | 49 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>02_Panoramic_Am_148bpm_Guitar.mid</strong>
+                        <br>
+                        <small>174 bytes | 0.00s | 12 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>02_Panoramic_Am_148bpm_Kick.mid</strong>
+                        <br>
+                        <small>244 bytes | 0.00s | 22 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>02_Panoramic_Am_148bpm_Pad.mid</strong>
+                        <br>
+                        <small>174 bytes | 0.00s | 13 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>02_Panoramic_Am_148bpm_OpenHat.mid</strong>
+                        <br>
+                        <small>117 bytes | 0.00s | 6 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>02_Panoramic_Am_148bpm_Perc.mid</strong>
+                        <br>
+                        <small>106 bytes | 0.00s | 5 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>02_Panoramic_Am_148bpm_Synth Bells.mid</strong>
+                        <br>
+                        <small>641 bytes | 0.00s | 71 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>03_Panoramic_Dm_162bpm_808.mid</strong>
+                        <br>
+                        <small>429 bytes | 0.00s | 44 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>03_Panoramic_Dm_162bpm_Bass Guitar.mid</strong>
+                        <br>
+                        <small>120 bytes | 0.00s | 6 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>02_Panoramic_Am_148bpm_Piano.mid</strong>
+                        <br>
+                        <small>1067 bytes | 0.01s | 125 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>03_Panoramic_Dm_162bpm_Bells.mid</strong>
+                        <br>
+                        <small>260 bytes | 0.00s | 24 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>03_Panoramic_Dm_162bpm_Clap 2.mid</strong>
+                        <br>
+                        <small>116 bytes | 0.00s | 6 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>03_Panoramic_Dm_162bpm_Clap.mid</strong>
+                        <br>
+                        <small>99 bytes | 0.00s | 4 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>03_Panoramic_Dm_162bpm_Flute.mid</strong>
+                        <br>
+                        <small>247 bytes | 0.00s | 21 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>03_Panoramic_Dm_162bpm_Guitar.mid</strong>
+                        <br>
+                        <small>172 bytes | 0.00s | 12 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>03_Panoramic_Dm_162bpm_Kalimba.mid</strong>
+                        <br>
+                        <small>270 bytes | 0.00s | 24 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>03_Panoramic_Dm_162bpm_HiHat.mid</strong>
+                        <br>
+                        <small>344 bytes | 0.00s | 35 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>03_Panoramic_Dm_162bpm_Kick.mid</strong>
+                        <br>
+                        <small>209 bytes | 0.00s | 16 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>03_Panoramic_Dm_162bpm_OpenHat.mid</strong>
+                        <br>
+                        <small>83 bytes | 0.00s | 2 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>03_Panoramic_Dm_162bpm_Perc.mid</strong>
+                        <br>
+                        <small>81 bytes | 0.00s | 2 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>03_Panoramic_Dm_162bpm_Piano.mid</strong>
+                        <br>
+                        <small>472 bytes | 0.00s | 50 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>03_Panoramic_Dm_162bpm_Snare.mid</strong>
+                        <br>
+                        <small>100 bytes | 0.00s | 4 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>04_Panoramic_G#m_162bpm_808.mid</strong>
+                        <br>
+                        <small>231 bytes | 0.00s | 18 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>04_Panoramic_G#m_162bpm_Clap.mid</strong>
+                        <br>
+                        <small>99 bytes | 0.00s | 4 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>04_Panoramic_G#m_162bpm_Flute.mid</strong>
+                        <br>
+                        <small>201 bytes | 0.00s | 16 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>04_Panoramic_G#m_162bpm_HiHat 2.mid</strong>
+                        <br>
+                        <small>125 bytes | 0.00s | 7 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>04_Panoramic_G#m_162bpm_KIck.mid</strong>
+                        <br>
+                        <small>178 bytes | 0.00s | 12 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>04_Panoramic_G#m_162bpm_HiHat.mid</strong>
+                        <br>
+                        <small>336 bytes | 0.00s | 34 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>04_Panoramic_G#m_162bpm_OpenHat 2.mid</strong>
+                        <br>
+                        <small>86 bytes | 0.00s | 2 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>04_Panoramic_G#m_162bpm_OpenHat.mid</strong>
+                        <br>
+                        <small>83 bytes | 0.00s | 2 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>04_Panoramic_G#m_162bpm_Pad.mid</strong>
+                        <br>
+                        <small>285 bytes | 0.00s | 26 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>04_Panoramic_G#m_162bpm_Piano.mid</strong>
+                        <br>
+                        <small>522 bytes | 0.00s | 56 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>04_Panoramic_G#m_162bpm_Perc.mid</strong>
+                        <br>
+                        <small>81 bytes | 0.00s | 2 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>04_Panoramic_G#m_162bpm_Snare.mid</strong>
+                        <br>
+                        <small>98 bytes | 0.00s | 4 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>05_Panoramic_Fm_140bpm_Guitar 2.mid</strong>
+                        <br>
+                        <small>339 bytes | 0.00s | 32 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>05_Panoramic_Fm_140bpm_808.mid</strong>
+                        <br>
+                        <small>374 bytes | 0.00s | 38 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>05_Panoramic_Fm_140bpm_Kick.mid</strong>
+                        <br>
+                        <small>98 bytes | 0.00s | 4 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>05_Panoramic_Fm_140bpm_Guitar.mid</strong>
+                        <br>
+                        <small>649 bytes | 0.00s | 72 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>05_Panoramic_Fm_140bpm_HiHat.mid</strong>
+                        <br>
+                        <small>752 bytes | 0.01s | 86 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>05_Panoramic_Fm_140bpm_Piano.mid</strong>
+                        <br>
+                        <small>365 bytes | 0.00s | 36 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>05_Panoramic_Fm_140bpm_OpenHat.mid</strong>
+                        <br>
+                        <small>92 bytes | 0.00s | 3 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>05_Panoramic_Fm_140bpm_Snare.mid</strong>
+                        <br>
+                        <small>118 bytes | 0.00s | 4 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+                <div class="file-item">
+                    <div>
+                        <strong>05_Panoramic_Fm_140bpm_Perc.mid</strong>
+                        <br>
+                        <small>90 bytes | 0.00s | 3 notes</small>
+                    </div>
+                    <div class="success">
+                        ✅ Success
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -52,12 +52,14 @@ def analyze_pattern_generator():
     
     # Create genre rules
     genre_rules = GenreFactory.create_genre_rules('pop')
-    print(f"Genre rules loaded: {len(genre_rules)} rule categories")
+    print(f"Genre rules loaded: {len(genre_rules.get_rules())} rule categories")
     
     # Test melody generation
     print("\n1. Melody Pattern Generation:")
     generator = PatternGenerator(genre_rules, 'happy')
-    melody_pattern = generator._generate_melody_pattern(4)  # 4 bars
+    # Create a simple song skeleton for generation context
+    song_skeleton = SongSkeleton('pop', 120, 'happy')
+    melody_pattern = generator.generate_selective_patterns(song_skeleton, 4, ['melody'])[0]  # 4 bars
     
     print(f"   - Pattern type: {melody_pattern.pattern_type}")
     print(f"   - Number of notes: {len(melody_pattern.notes)}")
@@ -78,7 +80,7 @@ def analyze_pattern_generator():
     
     # Test harmony generation
     print("\n2. Harmony Pattern Generation:")
-    harmony_pattern = generator._generate_harmony_pattern(4)
+    harmony_pattern = generator.generate_selective_patterns(song_skeleton, 4, ['harmony'], chord_complexity='medium')[0]
     
     print(f"   - Pattern type: {harmony_pattern.pattern_type}")
     print(f"   - Number of chords: {len(harmony_pattern.chords)}")
@@ -89,7 +91,7 @@ def analyze_pattern_generator():
     
     # Test bass generation
     print("\n3. Bass Pattern Generation:")
-    bass_pattern = generator._generate_bass_pattern(4)
+    bass_pattern = generator.generate_selective_patterns(song_skeleton, 4, ['bass'])[0]
     
     print(f"   - Pattern type: {bass_pattern.pattern_type}")
     print(f"   - Number of bass notes: {len(bass_pattern.notes)}")
@@ -100,7 +102,7 @@ def analyze_pattern_generator():
     
     # Test rhythm generation
     print("\n4. Rhythm Pattern Generation:")
-    rhythm_pattern = generator._generate_rhythm_pattern(4)
+    rhythm_pattern = generator.generate_selective_patterns(song_skeleton, 4, ['rhythm'], beat_complexity=0.5)[0]
     
     print(f"   - Pattern type: {rhythm_pattern.pattern_type}")
     print(f"   - Number of rhythm notes: {len(rhythm_pattern.notes)}")
@@ -119,18 +121,19 @@ def analyze_genre_rules():
     for genre_name in genres:
         try:
             rules = GenreFactory.create_genre_rules(genre_name)
+            rules_dict = rules.get_rules()
             print(f"\n{genre_name.upper()} Genre:")
-            print(f"  - Scales: {len(rules.get('scales', []))} available")
-            print(f"  - Chord progressions: {len(rules.get('chord_progressions', []))} available")
-            print(f"  - Rhythm patterns: {len(rules.get('rhythm_patterns', []))} available")
+            print(f"  - Scales: {len(rules_dict.get('scales', []))} available")
+            print(f"  - Chord progressions: {len(rules_dict.get('chord_progressions', []))} available")
+            print(f"  - Rhythm patterns: {len(rules_dict.get('rhythm_patterns', []))} available")
             
             # Show sample rules
-            if rules.get('scales'):
-                print(f"  - Sample scales: {rules['scales'][:3]}")
-            if rules.get('chord_progressions'):
-                print(f"  - Sample progressions: {rules['chord_progressions'][:2]}")
-            if rules.get('rhythm_patterns'):
-                print(f"  - Sample rhythm patterns: {rules['rhythm_patterns'][:2]}")
+            if rules_dict.get('scales'):
+                print(f"  - Sample scales: {rules_dict['scales'][:3]}")
+            if rules_dict.get('chord_progressions'):
+                print(f"  - Sample progressions: {rules_dict['chord_progressions'][:2]}")
+            if rules_dict.get('rhythm_patterns'):
+                print(f"  - Sample rhythm patterns: {rules_dict['rhythm_patterns'][:2]}")
                 
         except Exception as e:
             print(f"  ✗ Error loading {genre_name}: {e}")
@@ -155,7 +158,7 @@ def analyze_song_generation():
         
         print(f"Generated song analysis:")
         print(f"  - Total patterns: {len(song_skeleton.patterns)}")
-        print(f"  - Sections: {list(song_skeleton.sections.keys())}")
+        print(f"  - Sections: {[s.name if hasattr(s, 'name') else str(s) for s, _ in song_skeleton.sections]}")
         
         # Analyze pattern distribution
         pattern_types = {}
@@ -168,8 +171,9 @@ def analyze_song_generation():
             print(f"    - {ptype}: {count}")
         
         # Analyze sections
-        for section_type, patterns in song_skeleton.sections.items():
-            print(f"  - {section_type}: {len(patterns)} patterns")
+        for section_type, patterns in song_skeleton.sections:
+            name = section_type.name if hasattr(section_type, 'name') else str(section_type)
+            print(f"  - {name}: {len(patterns)} patterns")
         
         # Save to MIDI
         midi_output = MidiOutput()

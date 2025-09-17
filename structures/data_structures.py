@@ -14,75 +14,71 @@ The main classes are:
 from enum import Enum
 from typing import List, Optional, Dict, Any
 import copy
+from dataclasses import dataclass
 
 
+@dataclass
 class Note:
-    """Represents a musical note with pitch, duration, and velocity.
-    
+    """Represents a musical note with pitch, duration, velocity, and channel.
+
     A Note object encapsulates all the essential properties of a musical note:
     - pitch: MIDI pitch value (0-127)
     - duration: Length of the note in beats
     - velocity: Volume/intensity of the note (0-127)
     - start_time: When the note begins in the composition
-    
+    - channel: MIDI channel for the note (1-16, default 1)
+
     This class provides validation for all parameters and useful string representation.
     """
-    
-    def __init__(self, pitch: int, duration: float, velocity: int = 64, start_time: float = 0.0):
-        """
-        Initialize a Note.
-        
-        Args:
-            pitch: MIDI pitch value (0-127)
-            duration: Duration in beats (must be positive)
-            velocity: Note velocity (0-127, default 64)
-            start_time: Start time in beats from beginning of piece (default 0.0)
-            
-        Raises:
-            ValueError: If pitch, duration, or velocity are outside valid ranges
-        """
+    pitch: int
+    duration: float
+    velocity: int = 64
+    start_time: float = 0.0
+    channel: int = 1
+
+    def __post_init__(self):
+        """Validate parameters after initialization."""
         # Validate pitch range (MIDI standard: 0-127)
-        if not 0 <= pitch <= 127:
+        if not 0 <= self.pitch <= 127:
             raise ValueError("Pitch must be between 0 and 127")
-        
+
         # Validate duration is positive
-        if duration <= 0:
+        if self.duration <= 0:
             raise ValueError("Duration must be positive")
-        
+
         # Validate velocity range (MIDI standard: 0-127)
-        if not 0 <= velocity <= 127:
+        if not 0 <= self.velocity <= 127:
             raise ValueError("Velocity must be between 0 and 127")
-            
-        # Store validated parameters
-        self.pitch = pitch
-        self.duration = duration
-        self.velocity = velocity
-        self.start_time = start_time
-    
+
+        # Validate channel range (MIDI standard: 1-16)
+        if not 1 <= self.channel <= 16:
+            raise ValueError("Channel must be between 1 and 16")
+
     def __repr__(self):
         """Return a string representation of the Note."""
-        return f"Note(pitch={self.pitch}, duration={self.duration}, velocity={self.velocity}, start_time={self.start_time})"
-    
+        return f"Note(pitch={self.pitch}, duration={self.duration}, velocity={self.velocity}, start_time={self.start_time}, channel={self.channel})"
+
     def __eq__(self, other):
         """Check equality with another Note object.
-        
+
         Two notes are equal if they have the same pitch, duration, velocity, and start_time.
-        
+
         Args:
             other: Object to compare with
-            
+
         Returns:
             bool: True if equal, False otherwise
         """
         # Check if other is a Note instance
         if not isinstance(other, Note):
             return False
-        
+
         # Compare all note properties
-        return (self.pitch == other.pitch and 
-                self.duration == other.duration and 
-                self.velocity == other.velocity and 
-                self.start_time == other.start_time)
+        return (self.pitch == other.pitch and
+                self.duration == other.duration and
+                self.velocity == other.velocity and
+                self.start_time == other.start_time and
+                self.channel == other.channel)
 
 
 class Chord:
@@ -159,7 +155,7 @@ class Pattern:
     It serves as a container for musical content that can be arranged into song sections.
     """
     
-    def __init__(self, pattern_type: PatternType, notes: List[Note], chords: List[Chord]):
+    def __init__(self, pattern_type: PatternType, notes: List[Note], chords: List[Chord], tempo: Optional[float] = None, swing_factor: Optional[float] = None, syncopation_level: Optional[float] = None):
         """
         Initialize a Pattern.
         
@@ -171,6 +167,9 @@ class Pattern:
         self.pattern_type = pattern_type
         self.notes = notes
         self.chords = chords
+        self.tempo = tempo
+        self.swing_factor = swing_factor
+        self.syncopation_level = syncopation_level
     
     def __repr__(self):
         """Return a string representation of the Pattern."""

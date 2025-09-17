@@ -292,7 +292,7 @@ class ParameterEnumerator:
 
         if hasattr(plugin, 'parameters'):
             try:
-                params = dict(plugin.parameters)
+                params = {p.name: p.value for p in plugin.parameters}
                 for index, (name, value) in enumerate(params.items()):
                     metadata = self.extract_metadata_from_parameter(name, value, index)
                     param_info = ParameterInfo(

@@ -52,7 +52,20 @@ def main():
             note_density=0.8,    # Dense melody
             rhythm_density=0.8,  # Dense rhythm with high syncopation
             chord_density=0.8,   # Dense harmony with modal pads
-            bass_density=0.8     # Dense bass with sub-bass and Reese elements
+            bass_density=0.8,    # Dense bass with sub-bass and Reese elements
+            subgenre='jungle'    # Use jungle-style amen emphasis
+        )
+        # Tighten grid/humanization for DnB to improve breakbeat punch and analyzer alignment
+        orchestrator.context.set_performance(
+            swing_mode="sixteenth",
+            micro_timing_range_ms=0.0,
+            grid_bias_ms=0.0,
+            note_length_variance=0.05,
+            staccato_prob=0.0,
+            tenuto_prob=0.0,
+            marcato_prob=0.05,
+            marcato_velocity_boost=10,
+            velocity_profile={"shape": "arch", "intensity": 0.2, "phrase_length_beats": 4.0}
         )
         print("✅ Created pattern orchestrator with dense settings")
 

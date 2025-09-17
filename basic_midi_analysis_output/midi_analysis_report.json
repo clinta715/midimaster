@@ -1,0 +1,1871 @@
+{
+  "summary": {
+    "metadata": {
+      "analysis_timestamp": 1757878576.4886975,
+      "total_files": 56,
+      "input_directory": "reference_midis/midi4",
+      "output_directory": "basic_midi_analysis_output",
+      "midi_parsing_available": true
+    },
+    "statistics": {
+      "successful_analyses": 56,
+      "failed_analyses": 0,
+      "success_rate": 1.0,
+      "average_analysis_time": 0.0024780843939099994,
+      "total_notes_analyzed": 1344,
+      "average_velocity": 96.10521888688127
+    },
+    "file_summaries": {
+      "01_Panoramic_Dm_160bpm_808.mid": {
+        "size": 192,
+        "analysis_time": 0.0012362003326416016,
+        "notes": 13,
+        "errors": []
+      },
+      "01_Panoramic_Dm_160bpm_Bass Guitar.mid": {
+        "size": 113,
+        "analysis_time": 0.0017266273498535156,
+        "notes": 5,
+        "errors": []
+      },
+      "01_Panoramic_Dm_160bpm_Bells.mid": {
+        "size": 165,
+        "analysis_time": 0.0019648075103759766,
+        "notes": 12,
+        "errors": []
+      },
+      "01_Panoramic_Dm_160bpm_Clap.mid": {
+        "size": 99,
+        "analysis_time": 0.0019211769104003906,
+        "notes": 4,
+        "errors": []
+      },
+      "01_Panoramic_Dm_160bpm_Kick.mid": {
+        "size": 154,
+        "analysis_time": 0.0026047229766845703,
+        "notes": 11,
+        "errors": []
+      },
+      "01_Panoramic_Dm_160bpm_Guitar.mid": {
+        "size": 459,
+        "analysis_time": 0.0036885738372802734,
+        "notes": 48,
+        "errors": []
+      },
+      "01_Panoramic_Dm_160bpm_HiHat.mid": {
+        "size": 456,
+        "analysis_time": 0.003106355667114258,
+        "notes": 49,
+        "errors": []
+      },
+      "01_Panoramic_Dm_160bpm_OpenHat.mid": {
+        "size": 117,
+        "analysis_time": 0.0030336380004882812,
+        "notes": 6,
+        "errors": []
+      },
+      "01_Panoramic_Dm_160bpm_Perc.mid": {
+        "size": 147,
+        "analysis_time": 0.0009675025939941406,
+        "notes": 10,
+        "errors": []
+      },
+      "02_Panoramic_Am_148bpm_808.mid": {
+        "size": 284,
+        "analysis_time": 0.002462625503540039,
+        "notes": 26,
+        "errors": []
+      },
+      "01_Panoramic_Dm_160bpm_Piano Chords.mid": {
+        "size": 415,
+        "analysis_time": 0.003688335418701172,
+        "notes": 42,
+        "errors": []
+      },
+      "02_Panoramic_Am_148bpm_Clap.mid": {
+        "size": 99,
+        "analysis_time": 0.0032291412353515625,
+        "notes": 4,
+        "errors": []
+      },
+      "01_Panoramic_Dm_160bpm_Piano.mid": {
+        "size": 868,
+        "analysis_time": 0.005667448043823242,
+        "notes": 100,
+        "errors": []
+      },
+      "02_Panoramic_Am_148bpm_HiHat.mid": {
+        "size": 456,
+        "analysis_time": 0.002087116241455078,
+        "notes": 49,
+        "errors": []
+      },
+      "02_Panoramic_Am_148bpm_Guitar.mid": {
+        "size": 174,
+        "analysis_time": 0.0032231807708740234,
+        "notes": 12,
+        "errors": []
+      },
+      "02_Panoramic_Am_148bpm_Kick.mid": {
+        "size": 244,
+        "analysis_time": 0.0025293827056884766,
+        "notes": 22,
+        "errors": []
+      },
+      "02_Panoramic_Am_148bpm_Pad.mid": {
+        "size": 174,
+        "analysis_time": 0.0015757083892822266,
+        "notes": 13,
+        "errors": []
+      },
+      "02_Panoramic_Am_148bpm_OpenHat.mid": {
+        "size": 117,
+        "analysis_time": 0.001737833023071289,
+        "notes": 6,
+        "errors": []
+      },
+      "02_Panoramic_Am_148bpm_Perc.mid": {
+        "size": 106,
+        "analysis_time": 0.0014605522155761719,
+        "notes": 5,
+        "errors": []
+      },
+      "02_Panoramic_Am_148bpm_Synth Bells.mid": {
+        "size": 641,
+        "analysis_time": 0.0029854774475097656,
+        "notes": 71,
+        "errors": []
+      },
+      "03_Panoramic_Dm_162bpm_808.mid": {
+        "size": 429,
+        "analysis_time": 0.003796815872192383,
+        "notes": 44,
+        "errors": []
+      },
+      "03_Panoramic_Dm_162bpm_Bass Guitar.mid": {
+        "size": 120,
+        "analysis_time": 0.00393223762512207,
+        "notes": 6,
+        "errors": []
+      },
+      "02_Panoramic_Am_148bpm_Piano.mid": {
+        "size": 1067,
+        "analysis_time": 0.006064891815185547,
+        "notes": 125,
+        "errors": []
+      },
+      "03_Panoramic_Dm_162bpm_Bells.mid": {
+        "size": 260,
+        "analysis_time": 0.002457857131958008,
+        "notes": 24,
+        "errors": []
+      },
+      "03_Panoramic_Dm_162bpm_Clap 2.mid": {
+        "size": 116,
+        "analysis_time": 0.002566814422607422,
+        "notes": 6,
+        "errors": []
+      },
+      "03_Panoramic_Dm_162bpm_Clap.mid": {
+        "size": 99,
+        "analysis_time": 0.0030333995819091797,
+        "notes": 4,
+        "errors": []
+      },
+      "03_Panoramic_Dm_162bpm_Flute.mid": {
+        "size": 247,
+        "analysis_time": 0.001935720443725586,
+        "notes": 21,
+        "errors": []
+      },
+      "03_Panoramic_Dm_162bpm_Guitar.mid": {
+        "size": 172,
+        "analysis_time": 0.0019075870513916016,
+        "notes": 12,
+        "errors": []
+      },
+      "03_Panoramic_Dm_162bpm_Kalimba.mid": {
+        "size": 270,
+        "analysis_time": 0.0012710094451904297,
+        "notes": 24,
+        "errors": []
+      },
+      "03_Panoramic_Dm_162bpm_HiHat.mid": {
+        "size": 344,
+        "analysis_time": 0.0027818679809570312,
+        "notes": 35,
+        "errors": []
+      },
+      "03_Panoramic_Dm_162bpm_Kick.mid": {
+        "size": 209,
+        "analysis_time": 0.002013683319091797,
+        "notes": 16,
+        "errors": []
+      },
+      "03_Panoramic_Dm_162bpm_OpenHat.mid": {
+        "size": 83,
+        "analysis_time": 0.0021524429321289062,
+        "notes": 2,
+        "errors": []
+      },
+      "03_Panoramic_Dm_162bpm_Perc.mid": {
+        "size": 81,
+        "analysis_time": 0.0014150142669677734,
+        "notes": 2,
+        "errors": []
+      },
+      "03_Panoramic_Dm_162bpm_Piano.mid": {
+        "size": 472,
+        "analysis_time": 0.0017743110656738281,
+        "notes": 50,
+        "errors": []
+      },
+      "03_Panoramic_Dm_162bpm_Snare.mid": {
+        "size": 100,
+        "analysis_time": 0.001955747604370117,
+        "notes": 4,
+        "errors": []
+      },
+      "04_Panoramic_G#m_162bpm_808.mid": {
+        "size": 231,
+        "analysis_time": 0.0022225379943847656,
+        "notes": 18,
+        "errors": []
+      },
+      "04_Panoramic_G#m_162bpm_Clap.mid": {
+        "size": 99,
+        "analysis_time": 0.0020275115966796875,
+        "notes": 4,
+        "errors": []
+      },
+      "04_Panoramic_G#m_162bpm_Flute.mid": {
+        "size": 201,
+        "analysis_time": 0.0018296241760253906,
+        "notes": 16,
+        "errors": []
+      },
+      "04_Panoramic_G#m_162bpm_HiHat 2.mid": {
+        "size": 125,
+        "analysis_time": 0.0019049644470214844,
+        "notes": 7,
+        "errors": []
+      },
+      "04_Panoramic_G#m_162bpm_KIck.mid": {
+        "size": 178,
+        "analysis_time": 0.001806497573852539,
+        "notes": 12,
+        "errors": []
+      },
+      "04_Panoramic_G#m_162bpm_HiHat.mid": {
+        "size": 336,
+        "analysis_time": 0.0021119117736816406,
+        "notes": 34,
+        "errors": []
+      },
+      "04_Panoramic_G#m_162bpm_OpenHat 2.mid": {
+        "size": 86,
+        "analysis_time": 0.00128936767578125,
+        "notes": 2,
+        "errors": []
+      },
+      "04_Panoramic_G#m_162bpm_OpenHat.mid": {
+        "size": 83,
+        "analysis_time": 0.00177764892578125,
+        "notes": 2,
+        "errors": []
+      },
+      "04_Panoramic_G#m_162bpm_Pad.mid": {
+        "size": 285,
+        "analysis_time": 0.0012402534484863281,
+        "notes": 26,
+        "errors": []
+      },
+      "04_Panoramic_G#m_162bpm_Piano.mid": {
+        "size": 522,
+        "analysis_time": 0.002402067184448242,
+        "notes": 56,
+        "errors": []
+      },
+      "04_Panoramic_G#m_162bpm_Perc.mid": {
+        "size": 81,
+        "analysis_time": 0.002752065658569336,
+        "notes": 2,
+        "errors": []
+      },
+      "04_Panoramic_G#m_162bpm_Snare.mid": {
+        "size": 98,
+        "analysis_time": 0.0016679763793945312,
+        "notes": 4,
+        "errors": []
+      },
+      "05_Panoramic_Fm_140bpm_Guitar 2.mid": {
+        "size": 339,
+        "analysis_time": 0.001485586166381836,
+        "notes": 32,
+        "errors": []
+      },
+      "05_Panoramic_Fm_140bpm_808.mid": {
+        "size": 374,
+        "analysis_time": 0.003560781478881836,
+        "notes": 38,
+        "errors": []
+      },
+      "05_Panoramic_Fm_140bpm_Kick.mid": {
+        "size": 98,
+        "analysis_time": 0.002257823944091797,
+        "notes": 4,
+        "errors": []
+      },
+      "05_Panoramic_Fm_140bpm_Guitar.mid": {
+        "size": 649,
+        "analysis_time": 0.0043637752532958984,
+        "notes": 72,
+        "errors": []
+      },
+      "05_Panoramic_Fm_140bpm_HiHat.mid": {
+        "size": 752,
+        "analysis_time": 0.0050427913665771484,
+        "notes": 86,
+        "errors": []
+      },
+      "05_Panoramic_Fm_140bpm_Piano.mid": {
+        "size": 365,
+        "analysis_time": 0.001367330551147461,
+        "notes": 36,
+        "errors": []
+      },
+      "05_Panoramic_Fm_140bpm_OpenHat.mid": {
+        "size": 92,
+        "analysis_time": 0.003859281539916992,
+        "notes": 3,
+        "errors": []
+      },
+      "05_Panoramic_Fm_140bpm_Snare.mid": {
+        "size": 118,
+        "analysis_time": 0.0012023448944091797,
+        "notes": 4,
+        "errors": []
+      },
+      "05_Panoramic_Fm_140bpm_Perc.mid": {
+        "size": 90,
+        "analysis_time": 0.002644777297973633,
+        "notes": 3,
+        "errors": []
+      }
+    }
+  },
+  "results": {
+    "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_808.mid": {
+      "file_path": "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_808.mid",
+      "file_name": "01_Panoramic_Dm_160bpm_808.mid",
+      "file_size": 192,
+      "analysis_time": 0.0012362003326416016,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 6.0
+      },
+      "note_info": {
+        "total_notes": 13,
+        "unique_pitches": 7,
+        "pitch_range": {
+          "min": 62,
+          "max": 84,
+          "span": 22
+        },
+        "average_velocity": 99.0,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_Bass Guitar.mid": {
+      "file_path": "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_Bass Guitar.mid",
+      "file_name": "01_Panoramic_Dm_160bpm_Bass Guitar.mid",
+      "file_size": 113,
+      "analysis_time": 0.0017266273498535156,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 6.0
+      },
+      "note_info": {
+        "total_notes": 5,
+        "unique_pitches": 5,
+        "pitch_range": {
+          "min": 36,
+          "max": 46,
+          "span": 10
+        },
+        "average_velocity": 97.0,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_Bells.mid": {
+      "file_path": "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_Bells.mid",
+      "file_name": "01_Panoramic_Dm_160bpm_Bells.mid",
+      "file_size": 165,
+      "analysis_time": 0.0019648075103759766,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 5.78515625
+      },
+      "note_info": {
+        "total_notes": 12,
+        "unique_pitches": 8,
+        "pitch_range": {
+          "min": 58,
+          "max": 74,
+          "span": 16
+        },
+        "average_velocity": 99.0,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_Clap.mid": {
+      "file_path": "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_Clap.mid",
+      "file_name": "01_Panoramic_Dm_160bpm_Clap.mid",
+      "file_size": 99,
+      "analysis_time": 0.0019211769104003906,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 5.34375
+      },
+      "note_info": {
+        "total_notes": 4,
+        "unique_pitches": 1,
+        "pitch_range": {
+          "min": 60,
+          "max": 60,
+          "span": 0
+        },
+        "average_velocity": 100.0,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_Kick.mid": {
+      "file_path": "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_Kick.mid",
+      "file_name": "01_Panoramic_Dm_160bpm_Kick.mid",
+      "file_size": 154,
+      "analysis_time": 0.0026047229766845703,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 5.71875
+      },
+      "note_info": {
+        "total_notes": 11,
+        "unique_pitches": 1,
+        "pitch_range": {
+          "min": 60,
+          "max": 60,
+          "span": 0
+        },
+        "average_velocity": 100.0,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_Guitar.mid": {
+      "file_path": "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_Guitar.mid",
+      "file_name": "01_Panoramic_Dm_160bpm_Guitar.mid",
+      "file_size": 459,
+      "analysis_time": 0.0036885738372802734,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 12.0
+      },
+      "note_info": {
+        "total_notes": 48,
+        "unique_pitches": 13,
+        "pitch_range": {
+          "min": 58,
+          "max": 84,
+          "span": 26
+        },
+        "average_velocity": 97.0,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_HiHat.mid": {
+      "file_path": "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_HiHat.mid",
+      "file_name": "01_Panoramic_Dm_160bpm_HiHat.mid",
+      "file_size": 456,
+      "analysis_time": 0.003106355667114258,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 5.984375
+      },
+      "note_info": {
+        "total_notes": 49,
+        "unique_pitches": 5,
+        "pitch_range": {
+          "min": 55,
+          "max": 60,
+          "span": 5
+        },
+        "average_velocity": 100.0,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_OpenHat.mid": {
+      "file_path": "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_OpenHat.mid",
+      "file_name": "01_Panoramic_Dm_160bpm_OpenHat.mid",
+      "file_size": 117,
+      "analysis_time": 0.0030336380004882812,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 5.625
+      },
+      "note_info": {
+        "total_notes": 6,
+        "unique_pitches": 1,
+        "pitch_range": {
+          "min": 60,
+          "max": 60,
+          "span": 0
+        },
+        "average_velocity": 100.0,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_Perc.mid": {
+      "file_path": "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_Perc.mid",
+      "file_name": "01_Panoramic_Dm_160bpm_Perc.mid",
+      "file_size": 147,
+      "analysis_time": 0.0009675025939941406,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 5.90625
+      },
+      "note_info": {
+        "total_notes": 10,
+        "unique_pitches": 1,
+        "pitch_range": {
+          "min": 60,
+          "max": 60,
+          "span": 0
+        },
+        "average_velocity": 100.0,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\02_Panoramic_Am_148bpm_808.mid": {
+      "file_path": "reference_midis\\midi4\\02_Panoramic_Am_148bpm_808.mid",
+      "file_name": "02_Panoramic_Am_148bpm_808.mid",
+      "file_size": 284,
+      "analysis_time": 0.002462625503540039,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 12.972960000000002
+      },
+      "note_info": {
+        "total_notes": 26,
+        "unique_pitches": 8,
+        "pitch_range": {
+          "min": 42,
+          "max": 79,
+          "span": 37
+        },
+        "average_velocity": 96.0,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_Piano Chords.mid": {
+      "file_path": "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_Piano Chords.mid",
+      "file_name": "01_Panoramic_Dm_160bpm_Piano Chords.mid",
+      "file_size": 415,
+      "analysis_time": 0.003688335418701172,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 12.0
+      },
+      "note_info": {
+        "total_notes": 42,
+        "unique_pitches": 16,
+        "pitch_range": {
+          "min": 34,
+          "max": 69,
+          "span": 35
+        },
+        "average_velocity": 78.57142857142857,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\02_Panoramic_Am_148bpm_Clap.mid": {
+      "file_path": "reference_midis\\midi4\\02_Panoramic_Am_148bpm_Clap.mid",
+      "file_name": "02_Panoramic_Am_148bpm_Clap.mid",
+      "file_size": 99,
+      "analysis_time": 0.0032291412353515625,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 5.777021250000001
+      },
+      "note_info": {
+        "total_notes": 4,
+        "unique_pitches": 1,
+        "pitch_range": {
+          "min": 60,
+          "max": 60,
+          "span": 0
+        },
+        "average_velocity": 100.0,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_Piano.mid": {
+      "file_path": "reference_midis\\midi4\\01_Panoramic_Dm_160bpm_Piano.mid",
+      "file_name": "01_Panoramic_Dm_160bpm_Piano.mid",
+      "file_size": 868,
+      "analysis_time": 0.005667448043823242,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 12.0
+      },
+      "note_info": {
+        "total_notes": 100,
+        "unique_pitches": 23,
+        "pitch_range": {
+          "min": 34,
+          "max": 84,
+          "span": 50
+        },
+        "average_velocity": 84.26,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\02_Panoramic_Am_148bpm_HiHat.mid": {
+      "file_path": "reference_midis\\midi4\\02_Panoramic_Am_148bpm_HiHat.mid",
+      "file_name": "02_Panoramic_Am_148bpm_HiHat.mid",
+      "file_size": 456,
+      "analysis_time": 0.002087116241455078,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 6.3344531250000005
+      },
+      "note_info": {
+        "total_notes": 49,
+        "unique_pitches": 1,
+        "pitch_range": {
+          "min": 60,
+          "max": 60,
+          "span": 0
+        },
+        "average_velocity": 100.0,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\02_Panoramic_Am_148bpm_Guitar.mid": {
+      "file_path": "reference_midis\\midi4\\02_Panoramic_Am_148bpm_Guitar.mid",
+      "file_name": "02_Panoramic_Am_148bpm_Guitar.mid",
+      "file_size": 174,
+      "analysis_time": 0.0032231807708740234,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 12.972960000000002
+      },
+      "note_info": {
+        "total_notes": 12,
+        "unique_pitches": 4,
+        "pitch_range": {
+          "min": 67,
+          "max": 76,
+          "span": 9
+        },
+        "average_velocity": 100.0,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\02_Panoramic_Am_148bpm_Kick.mid": {
+      "file_path": "reference_midis\\midi4\\02_Panoramic_Am_148bpm_Kick.mid",
+      "file_name": "02_Panoramic_Am_148bpm_Kick.mid",
+      "file_size": 244,
+      "analysis_time": 0.0025293827056884766,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 12.770257500000001
+      },
+      "note_info": {
+        "total_notes": 22,
+        "unique_pitches": 1,
+        "pitch_range": {
+          "min": 60,
+          "max": 60,
+          "span": 0
+        },
+        "average_velocity": 100.0,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\02_Panoramic_Am_148bpm_Pad.mid": {
+      "file_path": "reference_midis\\midi4\\02_Panoramic_Am_148bpm_Pad.mid",
+      "file_name": "02_Panoramic_Am_148bpm_Pad.mid",
+      "file_size": 174,
+      "analysis_time": 0.0015757083892822266,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 12.972960000000002
+      },
+      "note_info": {
+        "total_notes": 13,
+        "unique_pitches": 5,
+        "pitch_range": {
+          "min": 81,
+          "max": 91,
+          "span": 10
+        },
+        "average_velocity": 96.0,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\02_Panoramic_Am_148bpm_OpenHat.mid": {
+      "file_path": "reference_midis\\midi4\\02_Panoramic_Am_148bpm_OpenHat.mid",
+      "file_name": "02_Panoramic_Am_148bpm_OpenHat.mid",
+      "file_size": 117,
+      "analysis_time": 0.001737833023071289,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 5.979723750000001
+      },
+      "note_info": {
+        "total_notes": 6,
+        "unique_pitches": 1,
+        "pitch_range": {
+          "min": 60,
+          "max": 60,
+          "span": 0
+        },
+        "average_velocity": 100.0,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\02_Panoramic_Am_148bpm_Perc.mid": {
+      "file_path": "reference_midis\\midi4\\02_Panoramic_Am_148bpm_Perc.mid",
+      "file_name": "02_Panoramic_Am_148bpm_Perc.mid",
+      "file_size": 106,
+      "analysis_time": 0.0014605522155761719,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 5.168913750000001
+      },
+      "note_info": {
+        "total_notes": 5,
+        "unique_pitches": 1,
+        "pitch_range": {
+          "min": 60,
+          "max": 60,
+          "span": 0
+        },
+        "average_velocity": 100.0,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\02_Panoramic_Am_148bpm_Synth Bells.mid": {
+      "file_path": "reference_midis\\midi4\\02_Panoramic_Am_148bpm_Synth Bells.mid",
+      "file_name": "02_Panoramic_Am_148bpm_Synth Bells.mid",
+      "file_size": 641,
+      "analysis_time": 0.0029854774475097656,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 12.972960000000002
+      },
+      "note_info": {
+        "total_notes": 71,
+        "unique_pitches": 12,
+        "pitch_range": {
+          "min": 53,
+          "max": 81,
+          "span": 28
+        },
+        "average_velocity": 97.2394366197183,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_808.mid": {
+      "file_path": "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_808.mid",
+      "file_name": "03_Panoramic_Dm_162bpm_808.mid",
+      "file_size": 429,
+      "analysis_time": 0.003796815872192383,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 11.85184
+      },
+      "note_info": {
+        "total_notes": 44,
+        "unique_pitches": 4,
+        "pitch_range": {
+          "min": 57,
+          "max": 69,
+          "span": 12
+        },
+        "average_velocity": 94.97727272727273,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Bass Guitar.mid": {
+      "file_path": "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Bass Guitar.mid",
+      "file_name": "03_Panoramic_Dm_162bpm_Bass Guitar.mid",
+      "file_size": 120,
+      "analysis_time": 0.00393223762512207,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 11.85184
+      },
+      "note_info": {
+        "total_notes": 6,
+        "unique_pitches": 3,
+        "pitch_range": {
+          "min": 41,
+          "max": 50,
+          "span": 9
+        },
+        "average_velocity": 100.0,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\02_Panoramic_Am_148bpm_Piano.mid": {
+      "file_path": "reference_midis\\midi4\\02_Panoramic_Am_148bpm_Piano.mid",
+      "file_name": "02_Panoramic_Am_148bpm_Piano.mid",
+      "file_size": 1067,
+      "analysis_time": 0.006064891815185547,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 12.972960000000002
+      },
+      "note_info": {
+        "total_notes": 125,
+        "unique_pitches": 21,
+        "pitch_range": {
+          "min": 40,
+          "max": 81,
+          "span": 41
+        },
+        "average_velocity": 84.52,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Bells.mid": {
+      "file_path": "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Bells.mid",
+      "file_name": "03_Panoramic_Dm_162bpm_Bells.mid",
+      "file_size": 260,
+      "analysis_time": 0.002457857131958008,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 11.85184
+      },
+      "note_info": {
+        "total_notes": 24,
+        "unique_pitches": 6,
+        "pitch_range": {
+          "min": 60,
+          "max": 69,
+          "span": 9
+        },
+        "average_velocity": 100.0,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Clap 2.mid": {
+      "file_path": "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Clap 2.mid",
+      "file_name": "03_Panoramic_Dm_162bpm_Clap 2.mid",
+      "file_size": 116,
+      "analysis_time": 0.002566814422607422,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 5.4629575
+      },
+      "note_info": {
+        "total_notes": 6,
+        "unique_pitches": 1,
+        "pitch_range": {
+          "min": 60,
+          "max": 60,
+          "span": 0
+        },
+        "average_velocity": 100.0,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Clap.mid": {
+      "file_path": "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Clap.mid",
+      "file_name": "03_Panoramic_Dm_162bpm_Clap.mid",
+      "file_size": 99,
+      "analysis_time": 0.0030333995819091797,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 5.2777725
+      },
+      "note_info": {
+        "total_notes": 4,
+        "unique_pitches": 1,
+        "pitch_range": {
+          "min": 60,
+          "max": 60,
+          "span": 0
+        },
+        "average_velocity": 100.0,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Flute.mid": {
+      "file_path": "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Flute.mid",
+      "file_name": "03_Panoramic_Dm_162bpm_Flute.mid",
+      "file_size": 247,
+      "analysis_time": 0.001935720443725586,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 10.74073
+      },
+      "note_info": {
+        "total_notes": 21,
+        "unique_pitches": 8,
+        "pitch_range": {
+          "min": 64,
+          "max": 77,
+          "span": 13
+        },
+        "average_velocity": 100.0,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Guitar.mid": {
+      "file_path": "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Guitar.mid",
+      "file_name": "03_Panoramic_Dm_162bpm_Guitar.mid",
+      "file_size": 172,
+      "analysis_time": 0.0019075870513916016,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 11.1111
+      },
+      "note_info": {
+        "total_notes": 12,
+        "unique_pitches": 5,
+        "pitch_range": {
+          "min": 60,
+          "max": 69,
+          "span": 9
+        },
+        "average_velocity": 100.0,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Kalimba.mid": {
+      "file_path": "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Kalimba.mid",
+      "file_name": "03_Panoramic_Dm_162bpm_Kalimba.mid",
+      "file_size": 270,
+      "analysis_time": 0.0012710094451904297,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 11.1111
+      },
+      "note_info": {
+        "total_notes": 24,
+        "unique_pitches": 6,
+        "pitch_range": {
+          "min": 69,
+          "max": 81,
+          "span": 12
+        },
+        "average_velocity": 100.0,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_HiHat.mid": {
+      "file_path": "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_HiHat.mid",
+      "file_name": "03_Panoramic_Dm_162bpm_HiHat.mid",
+      "file_size": 344,
+      "analysis_time": 0.0027818679809570312,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 5.833327499999999
+      },
+      "note_info": {
+        "total_notes": 35,
+        "unique_pitches": 1,
+        "pitch_range": {
+          "min": 60,
+          "max": 60,
+          "span": 0
+        },
+        "average_velocity": 91.68571428571428,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Kick.mid": {
+      "file_path": "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Kick.mid",
+      "file_name": "03_Panoramic_Dm_162bpm_Kick.mid",
+      "file_size": 209,
+      "analysis_time": 0.002013683319091797,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 11.85184
+      },
+      "note_info": {
+        "total_notes": 16,
+        "unique_pitches": 1,
+        "pitch_range": {
+          "min": 60,
+          "max": 60,
+          "span": 0
+        },
+        "average_velocity": 100.0,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_OpenHat.mid": {
+      "file_path": "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_OpenHat.mid",
+      "file_name": "03_Panoramic_Dm_162bpm_OpenHat.mid",
+      "file_size": 83,
+      "analysis_time": 0.0021524429321289062,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 3.518515
+      },
+      "note_info": {
+        "total_notes": 2,
+        "unique_pitches": 1,
+        "pitch_range": {
+          "min": 60,
+          "max": 60,
+          "span": 0
+        },
+        "average_velocity": 100.0,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Perc.mid": {
+      "file_path": "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Perc.mid",
+      "file_name": "03_Panoramic_Dm_162bpm_Perc.mid",
+      "file_size": 81,
+      "analysis_time": 0.0014150142669677734,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 4.7222175
+      },
+      "note_info": {
+        "total_notes": 2,
+        "unique_pitches": 1,
+        "pitch_range": {
+          "min": 60,
+          "max": 60,
+          "span": 0
+        },
+        "average_velocity": 100.0,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Piano.mid": {
+      "file_path": "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Piano.mid",
+      "file_name": "03_Panoramic_Dm_162bpm_Piano.mid",
+      "file_size": 472,
+      "analysis_time": 0.0017743110656738281,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 11.85184
+      },
+      "note_info": {
+        "total_notes": 50,
+        "unique_pitches": 18,
+        "pitch_range": {
+          "min": 38,
+          "max": 93,
+          "span": 55
+        },
+        "average_velocity": 90.16,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Snare.mid": {
+      "file_path": "reference_midis\\midi4\\03_Panoramic_Dm_162bpm_Snare.mid",
+      "file_name": "03_Panoramic_Dm_162bpm_Snare.mid",
+      "file_size": 100,
+      "analysis_time": 0.001955747604370117,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 5.833327499999999
+      },
+      "note_info": {
+        "total_notes": 4,
+        "unique_pitches": 1,
+        "pitch_range": {
+          "min": 60,
+          "max": 60,
+          "span": 0
+        },
+        "average_velocity": 100.0,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_808.mid": {
+      "file_path": "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_808.mid",
+      "file_name": "04_Panoramic_G#m_162bpm_808.mid",
+      "file_size": 231,
+      "analysis_time": 0.0022225379943847656,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 11.85184
+      },
+      "note_info": {
+        "total_notes": 18,
+        "unique_pitches": 3,
+        "pitch_range": {
+          "min": 66,
+          "max": 70,
+          "span": 4
+        },
+        "average_velocity": 99.77777777777777,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_Clap.mid": {
+      "file_path": "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_Clap.mid",
+      "file_name": "04_Panoramic_G#m_162bpm_Clap.mid",
+      "file_size": 99,
+      "analysis_time": 0.0020275115966796875,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 5.370365
+      },
+      "note_info": {
+        "total_notes": 4,
+        "unique_pitches": 1,
+        "pitch_range": {
+          "min": 60,
+          "max": 60,
+          "span": 0
+        },
+        "average_velocity": 100.0,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_Flute.mid": {
+      "file_path": "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_Flute.mid",
+      "file_name": "04_Panoramic_G#m_162bpm_Flute.mid",
+      "file_size": 201,
+      "analysis_time": 0.0018296241760253906,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 11.0185075
+      },
+      "note_info": {
+        "total_notes": 16,
+        "unique_pitches": 6,
+        "pitch_range": {
+          "min": 63,
+          "max": 75,
+          "span": 12
+        },
+        "average_velocity": 100.0,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_HiHat 2.mid": {
+      "file_path": "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_HiHat 2.mid",
+      "file_name": "04_Panoramic_G#m_162bpm_HiHat 2.mid",
+      "file_size": 125,
+      "analysis_time": 0.0019049644470214844,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 4.81481
+      },
+      "note_info": {
+        "total_notes": 7,
+        "unique_pitches": 2,
+        "pitch_range": {
+          "min": 59,
+          "max": 60,
+          "span": 1
+        },
+        "average_velocity": 71.71428571428571,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_KIck.mid": {
+      "file_path": "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_KIck.mid",
+      "file_name": "04_Panoramic_G#m_162bpm_KIck.mid",
+      "file_size": 178,
+      "analysis_time": 0.001806497573852539,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 11.666654999999999
+      },
+      "note_info": {
+        "total_notes": 12,
+        "unique_pitches": 1,
+        "pitch_range": {
+          "min": 60,
+          "max": 60,
+          "span": 0
+        },
+        "average_velocity": 106.0,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_HiHat.mid": {
+      "file_path": "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_HiHat.mid",
+      "file_name": "04_Panoramic_G#m_162bpm_HiHat.mid",
+      "file_size": 336,
+      "analysis_time": 0.0021119117736816406,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 5.92592
+      },
+      "note_info": {
+        "total_notes": 34,
+        "unique_pitches": 2,
+        "pitch_range": {
+          "min": 59,
+          "max": 60,
+          "span": 1
+        },
+        "average_velocity": 93.6470588235294,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_OpenHat 2.mid": {
+      "file_path": "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_OpenHat 2.mid",
+      "file_name": "04_Panoramic_G#m_162bpm_OpenHat 2.mid",
+      "file_size": 86,
+      "analysis_time": 0.00128936767578125,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 5.740735
+      },
+      "note_info": {
+        "total_notes": 2,
+        "unique_pitches": 1,
+        "pitch_range": {
+          "min": 60,
+          "max": 60,
+          "span": 0
+        },
+        "average_velocity": 100.0,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_OpenHat.mid": {
+      "file_path": "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_OpenHat.mid",
+      "file_name": "04_Panoramic_G#m_162bpm_OpenHat.mid",
+      "file_size": 83,
+      "analysis_time": 0.00177764892578125,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 3.4259225
+      },
+      "note_info": {
+        "total_notes": 2,
+        "unique_pitches": 1,
+        "pitch_range": {
+          "min": 60,
+          "max": 60,
+          "span": 0
+        },
+        "average_velocity": 100.0,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_Pad.mid": {
+      "file_path": "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_Pad.mid",
+      "file_name": "04_Panoramic_G#m_162bpm_Pad.mid",
+      "file_size": 285,
+      "analysis_time": 0.0012402534484863281,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 11.85184
+      },
+      "note_info": {
+        "total_notes": 26,
+        "unique_pitches": 6,
+        "pitch_range": {
+          "min": 54,
+          "max": 63,
+          "span": 9
+        },
+        "average_velocity": 61.61538461538461,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_Piano.mid": {
+      "file_path": "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_Piano.mid",
+      "file_name": "04_Panoramic_G#m_162bpm_Piano.mid",
+      "file_size": 522,
+      "analysis_time": 0.002402067184448242,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 11.85184
+      },
+      "note_info": {
+        "total_notes": 56,
+        "unique_pitches": 18,
+        "pitch_range": {
+          "min": 54,
+          "max": 90,
+          "span": 36
+        },
+        "average_velocity": 58.535714285714285,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_Perc.mid": {
+      "file_path": "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_Perc.mid",
+      "file_name": "04_Panoramic_G#m_162bpm_Perc.mid",
+      "file_size": 81,
+      "analysis_time": 0.002752065658569336,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 4.1666625
+      },
+      "note_info": {
+        "total_notes": 2,
+        "unique_pitches": 1,
+        "pitch_range": {
+          "min": 60,
+          "max": 60,
+          "span": 0
+        },
+        "average_velocity": 100.0,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_Snare.mid": {
+      "file_path": "reference_midis\\midi4\\04_Panoramic_G#m_162bpm_Snare.mid",
+      "file_name": "04_Panoramic_G#m_162bpm_Snare.mid",
+      "file_size": 98,
+      "analysis_time": 0.0016679763793945312,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 4.7222175
+      },
+      "note_info": {
+        "total_notes": 4,
+        "unique_pitches": 1,
+        "pitch_range": {
+          "min": 60,
+          "max": 60,
+          "span": 0
+        },
+        "average_velocity": 100.0,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\05_Panoramic_Fm_140bpm_Guitar 2.mid": {
+      "file_path": "reference_midis\\midi4\\05_Panoramic_Fm_140bpm_Guitar 2.mid",
+      "file_name": "05_Panoramic_Fm_140bpm_Guitar 2.mid",
+      "file_size": 339,
+      "analysis_time": 0.001485586166381836,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 13.7053434375
+      },
+      "note_info": {
+        "total_notes": 32,
+        "unique_pitches": 7,
+        "pitch_range": {
+          "min": 67,
+          "max": 80,
+          "span": 13
+        },
+        "average_velocity": 91.46875,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\05_Panoramic_Fm_140bpm_808.mid": {
+      "file_path": "reference_midis\\midi4\\05_Panoramic_Fm_140bpm_808.mid",
+      "file_name": "05_Panoramic_Fm_140bpm_808.mid",
+      "file_size": 374,
+      "analysis_time": 0.003560781478881836,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 13.714272000000001
+      },
+      "note_info": {
+        "total_notes": 38,
+        "unique_pitches": 2,
+        "pitch_range": {
+          "min": 60,
+          "max": 65,
+          "span": 5
+        },
+        "average_velocity": 113.13157894736842,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\05_Panoramic_Fm_140bpm_Kick.mid": {
+      "file_path": "reference_midis\\midi4\\05_Panoramic_Fm_140bpm_Kick.mid",
+      "file_name": "05_Panoramic_Fm_140bpm_Kick.mid",
+      "file_size": 98,
+      "analysis_time": 0.002257823944091797,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 10.4999895
+      },
+      "note_info": {
+        "total_notes": 4,
+        "unique_pitches": 1,
+        "pitch_range": {
+          "min": 60,
+          "max": 60,
+          "span": 0
+        },
+        "average_velocity": 93.0,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\05_Panoramic_Fm_140bpm_Guitar.mid": {
+      "file_path": "reference_midis\\midi4\\05_Panoramic_Fm_140bpm_Guitar.mid",
+      "file_name": "05_Panoramic_Fm_140bpm_Guitar.mid",
+      "file_size": 649,
+      "analysis_time": 0.0043637752532958984,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 13.714272000000001
+      },
+      "note_info": {
+        "total_notes": 72,
+        "unique_pitches": 7,
+        "pitch_range": {
+          "min": 53,
+          "max": 77,
+          "span": 24
+        },
+        "average_velocity": 96.11111111111111,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\05_Panoramic_Fm_140bpm_HiHat.mid": {
+      "file_path": "reference_midis\\midi4\\05_Panoramic_Fm_140bpm_HiHat.mid",
+      "file_name": "05_Panoramic_Fm_140bpm_HiHat.mid",
+      "file_size": 752,
+      "analysis_time": 0.0050427913665771484,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 13.714272000000001
+      },
+      "note_info": {
+        "total_notes": 86,
+        "unique_pitches": 4,
+        "pitch_range": {
+          "min": 57,
+          "max": 60,
+          "span": 3
+        },
+        "average_velocity": 101.47674418604652,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\05_Panoramic_Fm_140bpm_Piano.mid": {
+      "file_path": "reference_midis\\midi4\\05_Panoramic_Fm_140bpm_Piano.mid",
+      "file_name": "05_Panoramic_Fm_140bpm_Piano.mid",
+      "file_size": 365,
+      "analysis_time": 0.001367330551147461,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 13.714272000000001
+      },
+      "note_info": {
+        "total_notes": 36,
+        "unique_pitches": 10,
+        "pitch_range": {
+          "min": 36,
+          "max": 82,
+          "span": 46
+        },
+        "average_velocity": 90.0,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\05_Panoramic_Fm_140bpm_OpenHat.mid": {
+      "file_path": "reference_midis\\midi4\\05_Panoramic_Fm_140bpm_OpenHat.mid",
+      "file_name": "05_Panoramic_Fm_140bpm_OpenHat.mid",
+      "file_size": 92,
+      "analysis_time": 0.003859281539916992,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 5.7589228125
+      },
+      "note_info": {
+        "total_notes": 3,
+        "unique_pitches": 1,
+        "pitch_range": {
+          "min": 60,
+          "max": 60,
+          "span": 0
+        },
+        "average_velocity": 100.0,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\05_Panoramic_Fm_140bpm_Snare.mid": {
+      "file_path": "reference_midis\\midi4\\05_Panoramic_Fm_140bpm_Snare.mid",
+      "file_name": "05_Panoramic_Fm_140bpm_Snare.mid",
+      "file_size": 118,
+      "analysis_time": 0.0012023448944091797,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 6.2142795
+      },
+      "note_info": {
+        "total_notes": 4,
+        "unique_pitches": 1,
+        "pitch_range": {
+          "min": 60,
+          "max": 60,
+          "span": 0
+        },
+        "average_velocity": 100.0,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    },
+    "reference_midis\\midi4\\05_Panoramic_Fm_140bpm_Perc.mid": {
+      "file_path": "reference_midis\\midi4\\05_Panoramic_Fm_140bpm_Perc.mid",
+      "file_name": "05_Panoramic_Fm_140bpm_Perc.mid",
+      "file_size": 90,
+      "analysis_time": 0.002644777297973633,
+      "midi_info": {
+        "format": 1,
+        "tracks": 2,
+        "ticks_per_beat": 96,
+        "length_seconds": 5.999994
+      },
+      "note_info": {
+        "total_notes": 3,
+        "unique_pitches": 1,
+        "pitch_range": {
+          "min": 60,
+          "max": 60,
+          "span": 0
+        },
+        "average_velocity": 100.0,
+        "channels_used": [
+          0
+        ]
+      },
+      "errors": [],
+      "success": true
+    }
+  }
+}

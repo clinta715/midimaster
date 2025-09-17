@@ -435,3 +435,71 @@ def update_preview(self, song_skeleton):
 - `gui/generation_worker.py` - Background generation worker
 
 This specification provides a comprehensive design for transforming the basic MidiMaster GUI into a feature-rich, interactive application that maintains full compatibility with the existing CLI while adding powerful visual controls and real-time preview capabilities.
+## Status/Implemented Addendum
+
+This addendum documents the GUI controls that have been implemented to support presets, rhythms DB configuration, and filename templating, aligned with the CLI features.
+
+Implemented Controls (Session Settings)
+- Presets
+  - Dropdown list populated from on-disk presets
+    - Source: [gui/parameter_controls.py](gui/parameter_controls.py)
+      - Combo init and list refresh [python.ParameterControls._refresh_presets_list()](gui/parameter_controls.py:663)
+  - Save, Load, Delete buttons wired to preset manager
+    - Save [python.ParameterControls._on_save_preset()](gui/parameter_controls.py:680) → [python.SettingsPresetManager.save_preset()](core/settings_preset_manager.py:47)
+    - Load [python.ParameterControls._on_load_preset()](gui/parameter_controls.py:706) → [python.SettingsPresetManager.load_preset()](core/settings_preset_manager.py:87)
+    - Delete [python.ParameterControls._on_delete_preset()](gui/parameter_controls.py:732) → [python.SettingsPresetManager.delete_preset()](core/settings_preset_manager.py:127)
+  - Storage format/location
+    - JSON files under configs/presets
+    - Indexed by configs/presets/index.json
+    - Manager reference: [core/settings_preset_manager.py](core/settings_preset_manager.py)
+
+- Rhythms Database
+  - Path field + Browse button UI
+    - Form + widgets [gui/parameter_controls.py](gui/parameter_controls.py:228)
+    - Browse handler [python.ParameterControls._on_browse_rhythms_db()](gui/parameter_controls.py:748)
+  - Apply button + “Set as default” checkbox for persistence
+    - Apply handler [python.ParameterControls._apply_rhythms_db()](gui/parameter_controls.py:755)
+    - Validates path via [python.validate_rhythms_path()](gui/settings_helpers.py:93) → [python.RhythmsDbResolver.validate_path()](core/rhythms_db_resolver.py:98)
+    - When “Set as default” checked, persistence via [python.persist_rhythms_default()](gui/settings_helpers.py:105) → [python.RhythmsDbResolver.set_config_path()](core/rhythms_db_resolver.py:135)
+  - Resolution order (effective settings)
+    - CLI/config/env merge documented at [python.resolve_effective_settings()](core/config_loader.py:83)
+    - Resolver: [python.RhythmsDbResolver.get_rhythms_db_path()](core/rhythms_db_resolver.py:69)
+
+- Filename Template
+  - Template input field with live preview + validation UI
+    - UI layout [gui/parameter_controls.py](gui/parameter_controls.py:264)
+    - Change handler [python.ParameterControls._on_template_changed()](gui/parameter_controls.py:775)
+  - Validation and preview
+    - Validation: [python.validate_template()](core/filename_templater.py:118) (via GUI wrapper [python.validate_template_str()](gui/settings_helpers.py:28))
+    - Preview builder (pure string, no I/O): [python.build_preview_filename()](gui/settings_helpers.py:39)
+    - Placeholder mapping: [python.resolve_placeholders()](core/filename_templater.py:78)
+  - On generation (actual save)
+    - Full sanitization/uniqueness and optional subdirectories handled by [python.format_filename()](core/filename_templater.py:170)
+    - Integrated in MIDI saving:
+      - [python.MidiOutput.save_to_midi()](output/midi_output.py:312)
+      - [python.MidiOutput.save_to_separate_midi_files()](output/midi_output.py:479)
+
+Cross-Linked Helper APIs
+- Presets
+  - [core/settings_preset_manager.py](core/settings_preset_manager.py)
+    - [python.SettingsPresetManager.save_preset()](core/settings_preset_manager.py:47)
+    - [python.SettingsPresetManager.load_preset()](core/settings_preset_manager.py:87)
+    - [python.SettingsPresetManager.list_presets()](core/settings_preset_manager.py:108)
+    - [python.SettingsPresetManager.delete_preset()](core/settings_preset_manager.py:127)
+
+- Rhythms DB
+  - [core/rhythms_db_resolver.py](core/rhythms_db_resolver.py)
+    - [python.RhythmsDbResolver.get_rhythms_db_path()](core/rhythms_db_resolver.py:69)
+    - [python.RhythmsDbResolver.validate_path()](core/rhythms_db_resolver.py:98)
+    - [python.RhythmsDbResolver.set_config_path()](core/rhythms_db_resolver.py:135)
+
+- Filename Templating
+  - [core/filename_templater.py](core/filename_templater.py)
+    - [python.validate_template()](core/filename_templater.py:118)
+    - [python.resolve_placeholders()](core/filename_templater.py:78)
+    - [python.format_filename()](core/filename_templater.py:170)
+  - Detailed reference: [docs/filename_templating.md](filename_templating.md)
+
+Notes
+- The “Session Settings” group is defined at [gui/parameter_controls.py](gui/parameter_controls.py:202), containing Presets, Rhythms Database, and Filename Template sub-groups.
+- On invalid templates, generation should be considered blocked until corrected; GUI indicates validity via [python.ParameterControls.is_template_valid()](gui/parameter_controls.py:797).

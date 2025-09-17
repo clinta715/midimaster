@@ -839,3 +839,143 @@ Parameters:
 
 Returns:
 - None
+## Core Utilities (Templating, Presets, Rhythms DB, Config)
+
+This section documents the new helper APIs introduced for filename templating, settings presets, rhythms DB resolution/validation, and effective settings resolution. See source modules:
+- [core/filename_templater.py](core/filename_templater.py)
+- [core/settings_preset_manager.py](core/settings_preset_manager.py)
+- [core/rhythms_db_resolver.py](core/rhythms_db_resolver.py)
+- [core/config_loader.py](core/config_loader.py)
+
+### FilenameTemplater
+
+- [python.FilenameTemplater.format_filename()](core/filename_templater.py:170)
+
+  Signature:
+  ```python
+  def format_filename(
+      template: str,
+      settings: Dict[str, Any],
+      context: Optional[Dict[str, Any]] = None,
+      base_dir: Union[str, Path] = "output",
+      timestamp_fmt: str = "%Y%m%d_%H%M%S",
+  ) -> Path
+  ```
+  Description: Render a filename from a template with placeholders and ensure safety/uniqueness. Supports path subdirectories and appends .mid if missing. Creates parent dirs and resolves collisions.
+
+- [python.FilenameTemplater.resolve_placeholders()](core/filename_templater.py:78)
+
+  Signature:
+  ```python
+  def resolve_placeholders(
+      settings: Dict[str, Any],
+      context: Optional[Dict[str, Any]] = None,
+      timestamp_fmt: str = "%Y%m%d_%H%M%S",
+  ) -> Dict[str, str]
+  ```
+  Description: Build mapping for placeholders {genre,mood,tempo,bars,timestamp,stem,run_index,unique_id} with sanitization.
+
+- [python.FilenameTemplater.validate_template()](core/filename_templater.py:118)
+
+  Signature:
+  ```python
+  def validate_template(template: str) -> Tuple[bool, str]
+  ```
+  Description: Validate placeholder names used in a template. Returns (True,"") when valid, else (False,"reason").
+
+Related:
+- Sanitization helper [python.sanitize_component()](core/filename_templater.py:24)
+
+### SettingsPresetManager
+
+Class: SettingsPresetManager ([core/settings_preset_manager.py](core/settings_preset_manager.py))
+
+- [python.SettingsPresetManager.save_preset()](core/settings_preset_manager.py:47)
+
+  ```python
+  def save_preset(self, name: str, settings_dict: Dict[str, Any]) -> bool
+  ```
+  Description: Normalize/validate and persist a named preset to configs/presets/{slug}.json, updating index.json.
+
+- [python.SettingsPresetManager.load_preset()](core/settings_preset_manager.py:87)
+
+  ```python
+  def load_preset(self, name: str) -> Optional[Dict[str, Any]]
+  ```
+  Description: Load a preset by name using index.json mapping or slug fallback.
+
+- [python.SettingsPresetManager.list_presets()](core/settings_preset_manager.py:108)
+
+  ```python
+  def list_presets(self) -> List[str]
+  ```
+  Description: List known preset names (index-first, fallback to scanning preset files).
+
+- [python.SettingsPresetManager.delete_preset()](core/settings_preset_manager.py:127)
+
+  ```python
+  def delete_preset(self, name: str) -> bool
+  ```
+  Description: Delete preset file and index entry, returns True if anything removed.
+
+Other helpers:
+- Validation [python.SettingsPresetManager.validate_preset()](core/settings_preset_manager.py:174)
+
+### RhythmsDbResolver
+
+Class: RhythmsDbResolver ([core/rhythms_db_resolver.py](core/rhythms_db_resolver.py))
+
+- [python.RhythmsDbResolver.get_rhythms_db_path()](core/rhythms_db_resolver.py:69)
+
+  ```python
+  def get_rhythms_db_path(self, override: Optional[Union[str, os.PathLike]] = None) -> Path
+  ```
+  Description: Resolve rhythms DB directory via priority: override → env MIDIMASTER_RHYTHMS_DB → configs/settings.json (fallback to temp_settings.json) → ./reference_midis. Always returns absolute Path.
+
+- [python.RhythmsDbResolver.validate_path()](core/rhythms_db_resolver.py:98)
+
+  ```python
+  def validate_path(self, path: Path) -> Tuple[bool, str]
+  ```
+  Description: Validate existence, directory, readability, and presence of at least one .mid (skips macOS AppleDouble).
+
+- [python.RhythmsDbResolver.set_config_path()](core/rhythms_db_resolver.py:135)
+
+  ```python
+  def set_config_path(self, path: Path) -> None
+  ```
+  Description: Persist rhythms_db_path to configs/settings.json (merging if present). Caller should validate first.
+
+### Config Loading and Effective Settings
+
+Module: [core/config_loader.py](core/config_loader.py)
+
+- [python.load_settings_json()](core/config_loader.py:24)
+
+  ```python
+  def load_settings_json(path: str | Path = "configs/settings.json") -> Dict[str, Any]
+  ```
+  Description: Read optional user settings JSON: keys include filename_template, rhythms_db_path, default_preset. Returns {} on failure.
+
+- [python.resolve_effective_settings()](core/config_loader.py:83)
+
+  ```python
+  def resolve_effective_settings(cli_args) -> Tuple[Dict[str, Any], Optional[str], Optional[str]]
+  ```
+  Description: Compute effective generation settings with priority:
+  1) built-in defaults
+  2) configs/settings.json
+  3) configs/temp_settings.json (legacy rhythms_db_path)
+  4) preset via --load-preset or default_preset; normalized/validated then merged
+  5) explicit CLI overrides including --filename-template and --rhythms-db
+  Returns (effective_settings, filename_template_or_None, rhythms_db_abs_path_str).
+
+### MIDI Output integration
+
+Templating is applied by MIDI output when a template is provided:
+
+- [python.MidiOutput.save_to_midi()](output/midi_output.py:312)
+- [python.MidiOutput.save_to_separate_midi_files()](output/midi_output.py:479)
+
+See also the templating reference:
+- [docs/filename_templating.md](filename_templating.md)

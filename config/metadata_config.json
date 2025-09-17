@@ -1,0 +1,90 @@
+{
+  "project_name": "MIDI Master Project",
+  "genre": "electronic",
+  "mood": "energetic",
+  "tempo": 120,
+  "time_signature": [
+    4,
+    4
+  ],
+  "key": "C",
+  "scale": "major",
+  "daw_target": "generic",
+  "smpte": {
+    "frame_rate": 30,
+    "start_hour": 0,
+    "start_minute": 0,
+    "start_second": 0,
+    "start_frame": 0,
+    "drop_frame": false
+  },
+  "copyright": {
+    "copyright_text": "© 2024 Test Project",
+    "license_type": "All Rights Reserved",
+    "author": "",
+    "composer": "",
+    "arranger": "",
+    "publisher": "",
+    "isrc": "",
+    "upc": ""
+  },
+  "tracks": {
+    "melody": {
+      "name": "Melody",
+      "type": "melody",
+      "channel": 0,
+      "program": 0,
+      "bank": 0,
+      "bank_lsb": 0,
+      "volume": 100,
+      "pan": 64,
+      "mute": false,
+      "solo": false,
+      "comments": []
+    },
+    "harmony": {
+      "name": "Harmony",
+      "type": "harmony",
+      "channel": 1,
+      "program": 0,
+      "bank": 0,
+      "bank_lsb": 0,
+      "volume": 90,
+      "pan": 64,
+      "mute": false,
+      "solo": false,
+      "comments": []
+    },
+    "bass": {
+      "name": "Bass",
+      "type": "bass",
+      "channel": 2,
+      "program": 32,
+      "bank": 0,
+      "bank_lsb": 0,
+      "volume": 95,
+      "pan": 64,
+      "mute": false,
+      "solo": false,
+      "comments": []
+    },
+    "rhythm": {
+      "name": "Rhythm",
+      "type": "rhythm",
+      "channel": 9,
+      "program": 0,
+      "bank": 0,
+      "bank_lsb": 0,
+      "volume": 100,
+      "pan": 64,
+      "mute": false,
+      "solo": false,
+      "comments": []
+    }
+  },
+  "markers": [],
+  "text_events": [],
+  "custom_metadata": {
+    "test_setting": "test_value"
+  }
+}

@@ -1,0 +1,5 @@
+mido>=1.2.10
+pedalboard
+pygame>=2.0.0
+dawdreamer
+soundfile

@@ -22,10 +22,10 @@ try:
     import pygame
     import pygame.midi
     pygame.midi.init()
-    PYGAME_AVAILABLE = True
+    PYGAME_MIDI_AVAILABLE = True
 except ImportError:
-    PYGAME_AVAILABLE = False
-    print("pygame not available, using basic MIDI playback")
+    PYGAME_MIDI_AVAILABLE = False
+    print("pygame.midi not available, using simulated playback")
 
 try:
     import mido
@@ -44,15 +44,24 @@ class PlaybackController(QWidget):
     playRequested = pyqtSignal()
     pauseRequested = pyqtSignal()
     stopRequested = pyqtSignal()
+    positionUpdated = pyqtSignal(float)  # current beat position
 
     def __init__(self):
+        self.pygame_midi_available = PYGAME_MIDI_AVAILABLE
         super().__init__()
         self.song_skeleton = None
         self.is_playing = False
         self.is_paused = False
-        self.current_time = 0
+        self.current_beat = 0.0
         self.playback_thread = None
         self.playback_timer = None
+        self.midi_output = None
+        self.active_notes = {}  # (channel, note): start_time
+        self.current_volume = 70  # 0-100
+        self.tempo = 120  # default BPM
+        self.events = []
+        self.start_time = 0.0
+        self.paused_time = 0.0
 
         self._init_ui()
 
@@ -110,6 +119,8 @@ class PlaybackController(QWidget):
     def set_song_skeleton(self, song_skeleton):
         """Set the song skeleton for playback."""
         self.song_skeleton = song_skeleton
+        if song_skeleton:
+            self.tempo = getattr(song_skeleton, 'tempo', 120)
         self._update_ui_state()
 
     def _update_ui_state(self):
@@ -145,14 +156,16 @@ class PlaybackController(QWidget):
 
     def _on_volume_changed(self, value):
         """Handle volume slider change."""
-        if PYGAME_AVAILABLE and self.is_playing:
-            # Note: pygame volume control might not work as expected for MIDI
-            # Volume control for pygame.midi is not directly available
-            pass
+        self.current_volume = value
+        if self.pygame_midi_available and self.midi_output and self.is_playing:
+            # Send MIDI volume change (CC 7) for all channels
+            volume_midi = int((value / 100.0) * 127)
+            for channel in range(16):
+                self.midi_output.write_short(0xB0 | channel, 7, volume_midi)  # CC 7: volume
 
     def _on_loop_toggled(self, checked):
         """Handle loop toggle."""
-        # Loop functionality would need additional implementation
+        # Loop functionality handled in worker
         pass
 
     def play(self):
@@ -163,14 +176,30 @@ class PlaybackController(QWidget):
         self.playRequested.emit()
 
         if self.is_paused:
-            # Resume playback
+            # Resume from paused position
             self.is_paused = False
             self.is_playing = True
+            self.start_time += time.time() - self.paused_time
+            if self.playback_timer:
+                self.playback_timer.start(100)
         else:
             # Start new playback
             self.is_playing = True
             self.is_paused = False
-            self.current_time = 0
+            self.current_beat = 0.0
+            self.events = self.get_midi_events()
+            self.active_notes.clear()
+
+            if self.pygame_midi_available:
+                try:
+                    self.midi_output = pygame.midi.Output(0)  # Default device
+                    # Send initial volume for all channels
+                    volume_midi = int((self.current_volume / 100.0) * 127)
+                    for channel in range(16):
+                        self.midi_output.write_short(0xB0 | channel, 7, volume_midi)
+                except Exception as e:
+                    print(f"MIDI output init error: {e}")
+                    self.pygame_midi_available = False  # Fallback
 
             # Start playback thread
             self.playback_thread = threading.Thread(target=self._playback_worker)
@@ -190,11 +219,17 @@ class PlaybackController(QWidget):
             return
 
         self.pauseRequested.emit()
-        self.is_paused = True
-        self.is_playing = False
-
-        if self.playback_timer:
-            self.playback_timer.stop()
+        if self.is_playing:
+            self.is_paused = True
+            self.is_playing = False
+            self.paused_time = time.time()
+            if self.pygame_midi_available and self.midi_output:
+                # Send note off for active notes
+                for (ch, note), _ in self.active_notes.items():
+                    self.midi_output.write_short(0x80 | ch, note, 0)
+                self.active_notes.clear()
+            if self.playback_timer:
+                self.playback_timer.stop()
 
         self._update_ui_state()
 
@@ -204,12 +239,19 @@ class PlaybackController(QWidget):
 
         self.is_playing = False
         self.is_paused = False
-        self.current_time = 0
+        self.current_beat = 0.0
 
         if self.playback_timer:
             self.playback_timer.stop()
             self.playback_timer = None
 
+        if self.pygame_midi_available and self.midi_output:
+            # All notes off for all channels
+            for channel in range(16):
+                self.midi_output.write_short(0xB0 | channel, 123, 0)  # All notes off
+            self.midi_output.close()
+            self.midi_output = None
+        self.active_notes.clear()
         self.playback_thread = None
         self._update_time_display()
         self._update_ui_state()
@@ -217,42 +259,62 @@ class PlaybackController(QWidget):
     def _playback_worker(self):
         """Background worker for MIDI playback."""
         try:
-            if not self.song_skeleton:
+            if not self.events:
                 return
 
-            # Simple MIDI playback using timing
-            # This is a basic implementation - real MIDI playback would be more complex
+            # Calculate total duration in seconds
+            max_time = max(e['time'] for e in self.events) if self.events else 0
+            beat_duration = 60.0 / self.tempo
+            total_duration = max_time * beat_duration
 
-            # Calculate total duration (rough estimate)
-            total_beats = 0
-            for section_name, section in self.song_skeleton.sections.items():
-                if section and hasattr(section, 'duration'):
-                    total_beats += section.duration
+            self.start_time = time.time()
+            last_update = self.start_time
 
-            # Assume 120 BPM default, calculate duration in seconds
-            tempo = getattr(self.song_skeleton, 'tempo', 120)
-            beats_per_second = tempo / 60.0
-            total_duration = total_beats / beats_per_second
-
-            # Simulate playback timing
-            start_time = time.time()
+            event_idx = 0
             while self.is_playing and not self.is_paused:
-                elapsed = time.time() - start_time
-                self.current_time = min(elapsed, total_duration)
+                current_time = time.time()
+                elapsed = current_time - self.start_time
+                self.current_beat = elapsed / beat_duration
 
-                if elapsed >= total_duration:
+                # Update position periodically
+                if current_time - last_update >= 0.1:  # 100ms
+                    self.positionUpdated.emit(self.current_beat)
+                    last_update = current_time
+
+                # Process events up to current time
+                target_event_time = self.current_beat
+                while event_idx < len(self.events) and self.events[event_idx]['time'] <= target_event_time:
+                    event = self.events[event_idx]
+                    if self.pygame_midi_available and self.midi_output:
+                        if event['type'] == 'note_on' and event['velocity'] > 0:
+                            self.midi_output.note_on(event['channel'], event['note'], event['velocity'])
+                            self.active_notes[(event['channel'], event['note'])] = current_time
+                        elif event['type'] == 'note_off' or (event['type'] == 'note_on' and event['velocity'] == 0):
+                            self.midi_output.note_off(event['channel'], event['note'], 0)
+                            self.active_notes.pop((event['channel'], event['note']), None)
+                    event_idx += 1
+
+                # Check if finished
+                if self.current_beat >= max_time:
                     if self.loop_checkbox.isChecked():
-                        # Loop back to beginning
-                        start_time = time.time()
-                        self.current_time = 0
+                        # Loop
+                        event_idx = 0
+                        self.current_beat = 0.0
+                        self.start_time = current_time
+                        self.active_notes.clear()
+                        # Restart volume if needed
+                        if self.pygame_midi_available and self.midi_output:
+                            volume_midi = int((self.current_volume / 100.0) * 127)
+                            for channel in range(16):
+                                self.midi_output.write_short(0xB0 | channel, 7, volume_midi)
                     else:
-                        # Stop at end
                         break
 
-                time.sleep(0.01)  # Small sleep to prevent busy waiting
+                time.sleep(0.001)  # Minimal sleep
 
-            # Playback finished
-            if self.is_playing:  # Only if not manually stopped
+            # Finished naturally
+            if self.is_playing:
+                self.positionUpdated.emit(self.current_beat)
                 self.stop()
 
         except Exception as e:
@@ -262,8 +324,10 @@ class PlaybackController(QWidget):
     def _update_time_display(self):
         """Update the time display label."""
         if self.is_playing or self.is_paused:
-            minutes = int(self.current_time // 60)
-            seconds = int(self.current_time % 60)
+            beat_duration = 60.0 / self.tempo
+            elapsed_seconds = self.current_beat * beat_duration
+            minutes = int(elapsed_seconds // 60)
+            seconds = int(elapsed_seconds % 60)
             self.time_label.setText(f"{minutes:02d}:{seconds:02d}")
         else:
             self.time_label.setText("00:00")
@@ -287,24 +351,39 @@ class PlaybackController(QWidget):
             return []
 
         events = []
-        current_time = 0
+        current_time = 0.0
 
-        for section_name, section in self.song_skeleton.sections.items():
-            if not section:
+        # Volume scaling
+        volume_scale = self.current_volume / 100.0
+
+        # Helper for section target length (beats)
+        def _get_section_target_length_beats(section_type) -> float:
+            mapping = {
+                'intro': 16.0, 'verse': 32.0, 'pre_chorus': 16.0, 'chorus': 32.0,
+                'post_chorus': 16.0, 'bridge': 24.0, 'solo': 32.0, 'fill': 4.0, 'outro': 16.0
+            }
+            key = getattr(section_type, "value", str(section_type))
+            return mapping.get(key, 32.0)
+
+        for section_type, patterns in self.song_skeleton.sections:
+            if not patterns:
                 continue
 
-            for pattern in section:
+            for pattern in patterns:
                 if not hasattr(pattern, 'notes') or not pattern.notes:
                     continue
 
                 for note in pattern.notes:
+                    velocity = int(note.velocity * volume_scale)
+                    channel = self._get_channel_for_pattern(pattern.pattern_type)
+
                     # Note on event
                     events.append({
                         'type': 'note_on',
                         'time': current_time + note.start_time,
                         'note': note.pitch,
-                        'velocity': note.velocity,
-                        'channel': self._get_channel_for_pattern(pattern.pattern_type)
+                        'velocity': velocity,
+                        'channel': channel
                     })
 
                     # Note off event
@@ -313,12 +392,11 @@ class PlaybackController(QWidget):
                         'time': current_time + note.start_time + note.duration,
                         'note': note.pitch,
                         'velocity': 0,
-                        'channel': self._get_channel_for_pattern(pattern.pattern_type)
+                        'channel': channel
                     })
 
-            # Move to next section
-            if hasattr(section, 'duration'):
-                current_time += section.duration
+            # Move to next section by target length
+            current_time += _get_section_target_length_beats(section_type)
 
         # Sort events by time
         events.sort(key=lambda x: x['time'])

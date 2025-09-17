@@ -1,0 +1,225 @@
+[
+  {
+    "file_path": "test_outputs\\\\midi_files\\\\pop_energetic_balanced_tempo120_bars16_run1.mid",
+    "target_genre": "pop",
+    "timestamp": 1757979579.6283793,
+    "analyses_performed": [
+      "genre_consistency",
+      "reference_matching",
+      "trend_analysis",
+      "mix_readiness"
+    ],
+    "results": {
+      "genre_consistency": "AnalysisResult(file_path='test_outputs\\\\\\\\midi_files\\\\\\\\pop_energetic_balanced_tempo120_bars16_run1.mid', genre_consistency_score=1.0, production_quality_score=1.0, overall_score=1.0, recommendations=[])",
+      "reference_matches": [
+        {
+          "reference_file": "reference_midis\\800000_Drum_Percussion_MIDI_Archive[6_19_15]\\50\u252c\u2524s Drummer MIDI Files\\03 Traditional Pop\\08 Cecil Cee 101BPM\\06 16th Perc.mid",
+          "similarity_score": 0.7708276371227454,
+          "genre": "pop",
+          "tempo_diff": 0.0
+        },
+        {
+          "reference_file": "reference_midis\\800000_Drum_Percussion_MIDI_Archive[6_19_15]\\50\u252c\u2524s Drummer MIDI Files\\03 Traditional Pop\\03 King Quiza 102BPM\\02 8th Hat.mid",
+          "similarity_score": 0.7661359121376079,
+          "genre": "pop",
+          "tempo_diff": 0.0
+        },
+        {
+          "reference_file": "reference_midis\\800000_Drum_Percussion_MIDI_Archive[6_19_15]\\50\u252c\u2524s Drummer MIDI Files\\03 Traditional Pop\\08 Cecil Cee 101BPM\\10 Fill 3.mid",
+          "similarity_score": 0.7545356598168784,
+          "genre": "pop",
+          "tempo_diff": 0.0
+        },
+        {
+          "reference_file": "reference_midis\\800000_Drum_Percussion_MIDI_Archive[6_19_15]\\50\u252c\u2524s Drummer MIDI Files\\03 Traditional Pop\\04 Love 155BPM\\06 8th Hat.mid",
+          "similarity_score": 0.7518628936985935,
+          "genre": "pop",
+          "tempo_diff": 0.0
+        },
+        {
+          "reference_file": "reference_midis\\800000_Drum_Percussion_MIDI_Archive[6_19_15]\\50\u252c\u2524s Drummer MIDI Files\\03 Traditional Pop\\05 Your Eyes 80BPM\\07 8th hat.mid",
+          "similarity_score": 0.7386030564263323,
+          "genre": "pop",
+          "tempo_diff": 0.0
+        }
+      ],
+      "genre_trends": {
+        "rock": {
+          "track_count": 843,
+          "avg_tempo": 119.88137603795967,
+          "tempo_range": [
+            100.0,
+            120.0
+          ],
+          "avg_note_count": 38.0367734282325,
+          "avg_velocity": 94.33260661061546
+        },
+        "unknown": {
+          "track_count": 1426,
+          "avg_tempo": 122.22162212585846,
+          "tempo_range": [
+            50.99998215000625,
+            190.0002850004275
+          ],
+          "avg_note_count": 49.732819074333804,
+          "avg_velocity": 92.40229190496594
+        },
+        "pop": {
+          "track_count": 100,
+          "avg_tempo": 120.0,
+          "tempo_range": [
+            120.0,
+            120.0
+          ],
+          "avg_note_count": 45.56,
+          "avg_velocity": 90.02859097001273
+        },
+        "jazz": {
+          "track_count": 301,
+          "avg_tempo": 120.0,
+          "tempo_range": [
+            120.0,
+            120.0
+          ],
+          "avg_note_count": 38.651162790697676,
+          "avg_velocity": 79.9369364129433
+        }
+      },
+      "mix_readiness": {
+        "file_path": "test_outputs\\\\midi_files\\\\pop_energetic_balanced_tempo120_bars16_run1.mid",
+        "overall_readiness_score": 0.7449999999999999,
+        "readiness_rating": "Mostly Ready",
+        "detailed_scores": {
+          "frequency_balance": {
+            "score": 0.8,
+            "assessment": "Good frequency balance",
+            "issues": [
+              "Very low presence in bass range"
+            ],
+            "range_distribution": {
+              "sub_bass": 0.0,
+              "bass": 0.019704433497536946,
+              "low_mid": 0.18719211822660098,
+              "mid": 0.15763546798029557,
+              "high_mid": 0.3103448275862069,
+              "high": 0.2955665024630542,
+              "super_high": 0.029556650246305417
+            }
+          },
+          "dynamic_range": {
+            "score": 0.49999999999999994,
+            "assessment": "Dynamic range needs improvement",
+            "issues": [
+              "Low velocity variation"
+            ],
+            "velocity_range": [
+              80,
+              100
+            ],
+            "coefficient_of_variation": 0.09173258786850497
+          },
+          "stereo_field": {
+            "score": 0.3,
+            "assessment": "Limited stereo field usage",
+            "issues": [
+              "Mono - consider using stereo channels"
+            ],
+            "channel_distribution": {
+              "0": 203
+            }
+          },
+          "mix_clarity": {
+            "score": 1.0,
+            "assessment": "Good mix clarity",
+            "issues": [],
+            "note_density": 0.07322598332034745,
+            "avg_simultaneous_notes": 1
+          },
+          "production_completeness": {
+            "score": 1.0,
+            "assessment": "Good production completeness",
+            "issues": [
+              "Mono channel usage only"
+            ],
+            "elements_present": {
+              "notes": true,
+              "velocity_variation": true,
+              "multiple_channels": false,
+              "tempo_info": true
+            }
+          }
+        },
+        "recommendations": [
+          "Add more dynamic variation",
+          "Use velocity automation for expression",
+          "Consider compression if dynamics are too wide"
+        ],
+        "mixing_checklist": [
+          {
+            "task": "Level balancing",
+            "completed": true,
+            "priority": "medium"
+          },
+          {
+            "task": "EQ adjustments",
+            "completed": true,
+            "priority": "high"
+          },
+          {
+            "task": "Compression",
+            "completed": true,
+            "priority": "medium"
+          },
+          {
+            "task": "Stereo imaging",
+            "completed": true,
+            "priority": "medium"
+          },
+          {
+            "task": "Reverb and effects",
+            "completed": false,
+            "priority": "low"
+          },
+          {
+            "task": "Mastering preparation",
+            "completed": false,
+            "priority": "low"
+          }
+        ],
+        "estimated_mix_time": "4-6 hours (moderate work needed)"
+      }
+    },
+    "performance_metrics": {
+      "total_time_seconds": 0.017627716064453125,
+      "analyses_count": 4
+    },
+    "file_info": {
+      "format": 1,
+      "tracks": 1,
+      "ticks_per_beat": 480,
+      "length_seconds": 2887.75
+    },
+    "overall_assessment": {
+      "overall_score": 0.7101379395204575,
+      "grade": "B",
+      "strengths": [
+        "Genre consistency analysis completed",
+        "Mix readiness analysis completed",
+        "Reference library matching completed",
+        "Good overall quality"
+      ],
+      "weaknesses": [],
+      "recommendations": []
+    },
+    "pipeline": {
+      "name": "Comprehensive Analysis",
+      "description": "Full analysis suite for detailed assessment",
+      "steps_executed": [
+        "genre_consistency",
+        "reference_matching",
+        "mix_readiness"
+      ],
+      "target_genre": "pop"
+    }
+  }
+]

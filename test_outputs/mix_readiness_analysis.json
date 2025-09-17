@@ -1,0 +1,103 @@
+{
+  "file_path": "test_outputs\\\\midi_files\\\\pop_energetic_balanced_tempo120_bars16_run1.mid",
+  "overall_readiness_score": 0.7649999999999999,
+  "readiness_rating": "Mostly Ready",
+  "detailed_scores": {
+    "frequency_balance": {
+      "score": 0.8,
+      "assessment": "Good frequency balance",
+      "issues": [
+        "Very low presence in bass range"
+      ],
+      "range_distribution": {
+        "sub_bass": 0.0,
+        "bass": 0.019704433497536946,
+        "low_mid": 0.18719211822660098,
+        "mid": 0.15763546798029557,
+        "high_mid": 0.3103448275862069,
+        "high": 0.2955665024630542,
+        "super_high": 0.029556650246305417
+      }
+    },
+    "dynamic_range": {
+      "score": 0.49999999999999994,
+      "assessment": "Dynamic range needs improvement",
+      "issues": [
+        "Low velocity variation"
+      ],
+      "velocity_range": [
+        80,
+        100
+      ],
+      "coefficient_of_variation": 0.09173258786850497
+    },
+    "stereo_field": {
+      "score": 0.3,
+      "assessment": "Limited stereo field usage",
+      "issues": [
+        "Mono - consider using stereo channels"
+      ],
+      "channel_distribution": {
+        "0": 203
+      }
+    },
+    "mix_clarity": {
+      "score": 1.0,
+      "assessment": "Good mix clarity",
+      "issues": [],
+      "note_density": 0.07322598332034745,
+      "avg_simultaneous_notes": 1
+    },
+    "production_completeness": {
+      "score": 1.0999999999999999,
+      "assessment": "Good production completeness",
+      "issues": [
+        "Mono channel usage only"
+      ],
+      "elements_present": {
+        "notes": true,
+        "velocity_variation": true,
+        "multiple_channels": false,
+        "tempo_info": true
+      }
+    }
+  },
+  "recommendations": [
+    "Add more dynamic variation",
+    "Use velocity automation for expression",
+    "Consider compression if dynamics are too wide"
+  ],
+  "mixing_checklist": [
+    {
+      "task": "Level balancing",
+      "completed": true,
+      "priority": "medium"
+    },
+    {
+      "task": "EQ adjustments",
+      "completed": true,
+      "priority": "high"
+    },
+    {
+      "task": "Compression",
+      "completed": true,
+      "priority": "medium"
+    },
+    {
+      "task": "Stereo imaging",
+      "completed": true,
+      "priority": "medium"
+    },
+    {
+      "task": "Reverb and effects",
+      "completed": false,
+      "priority": "low"
+    },
+    {
+      "task": "Mastering preparation",
+      "completed": false,
+      "priority": "low"
+    }
+  ],
+  "estimated_mix_time": "4-6 hours (moderate work needed)"
+}

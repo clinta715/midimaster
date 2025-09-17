@@ -6,255 +6,190 @@ harmonically rich chord progressions based on genre rules and musical context.
 """
 
 import random
-from typing import TYPE_CHECKING, List
+from typing import TYPE_CHECKING, List, Dict, Optional
 
 from structures.data_structures import Note, Pattern, PatternType, Chord
-from generators.generator_utils import get_velocity_for_mood, initialize_key_and_scale
+from generators.generator_utils import get_velocity_for_mood
+from music_theory import MusicTheory, ScaleType
+from generators.generator_context import GeneratorContext
 
 if TYPE_CHECKING:
     from generators.generator_context import GeneratorContext
 
-
 class HarmonyGenerator:
-    """Generates harmony patterns using Roman numeral chord progressions.
-
-    The HarmonyGenerator creates chord progressions based on genre-specific
-    chord sequences expressed in Roman numeral notation, voiced appropriately
-    and timed to create harmonic support for the melody.
     """
-
-    def __init__(self, context: 'GeneratorContext'):
-        """
-        Initialize the HarmonyGenerator.
-
-        Args:
-            context: Shared GeneratorContext containing music theory and configuration
-        """
+    Generates harmonically coherent chord progressions and voicings for various genres.
+    """
+    
+    def __init__(self, context: Optional['GeneratorContext'] = None):
         self.context = context
-
-    def generate(self, num_bars: int, chord_complexity: str = 'medium', harmonic_variance: str = 'medium') -> Pattern:
-        """Generate a harmony pattern.
-
-        Creates chord progressions based on the genre's typical chord sequences
-        expressed in Roman numeral notation. Chords are voiced appropriately
-        and timed to create harmonic support for the melody.
-
-        Args:
-            num_bars: Number of bars to generate
-            chord_complexity: Complexity level of chords ('simple', 'medium', 'complex')
-            harmonic_variance: Level of harmonic movement between chords ('close', 'medium', 'distant')
-
-        Returns:
-            Pattern object containing the harmony chords
-        """
-        # Validate chord complexity parameter
-        valid_complexities = ['simple', 'medium', 'complex']
-        # Validate harmonic variance parameter
-        valid_variances = ['close', 'medium', 'distant']
-        if harmonic_variance not in valid_variances:
-            raise ValueError(f"harmonic_variance must be one of {valid_variances}")
-        if chord_complexity not in valid_complexities:
-            raise ValueError(f"chord_complexity must be one of {valid_complexities}")
-
-        # Ensure key and scale are established
-        if not self.context.scale_pitches:
-            initialize_key_and_scale(self.context)
-
-        notes = []
-        chords = []
-        start_time = 0.0
-
-        # Get chord progressions from genre rules
-        # If user key/mode is specified, use transposed progressions
-        if self.context.user_key and self.context.user_mode:
-            progressions = self.context.genre_rules.get_transposed_chord_progressions(
-                self.context.user_key, self.context.user_mode
-            )
-            if not progressions:
-                progressions = [['Am', 'F', 'C', 'G']]  # Fallback to A minor progression
+        if context:
+            self.key = context.current_key
+            self.scale = context.current_scale
+            self.scale_str = f"{self.key} {self.scale.lower()}"
+            self.genre_rules = context.genre_rules
+            self.chord_progressions = self.genre_rules.get_chord_progressions()
+            self.mood = context.mood
         else:
-            progressions = self.context.genre_rules.get_chord_progressions()
-            if not progressions:
-                progressions = [['I', 'IV', 'V', 'I']]
-
-        # Randomly select one progression from the available options
-        selected_progression = random.choice(progressions)
-
-        print(f"Selected chord progression: {selected_progression}")
-        # Filter progressions by harmonic variance and select one
-        if harmonic_variance != 'medium':  # Only filter if not default
-            key_scale_string = f"{self.context.current_key} {self.context.current_scale}"
-            filtered_progressions = self.context.music_theory.filter_progressions_by_distance(
-                progressions, key_scale_string, harmonic_variance
-            )
-            if filtered_progressions:
-                progressions = filtered_progressions
-
-        # Generate chords based on the selected progression
-        # One chord per bar is the typical approach
-        for i in range(num_bars):
-            # Get the chord for this bar (cycle through progression if needed)
-            chord_symbol = selected_progression[i % len(selected_progression)]
-
-            # Convert chord symbol to pitches (either Roman numeral or chord name)
-            try:
-                if self.context.user_key and self.context.user_mode:
-                    # Using transposed progressions with chord names
-                    chord_pitches = self._parse_chord_symbol(chord_symbol)
-                else:
-                    # Using Roman numerals
-                    chord_pitches = self.context.music_theory.get_chord_pitches_from_roman(
-                        chord_symbol, f"{self.context.current_key} {self.context.current_scale}"
-                    )
-
-                print(f"Chord {chord_symbol} -> pitches: {chord_pitches}")
-
-                # Filter chord pitches to only include those in the current scale
-                if chord_pitches:
-                    original_count = len(chord_pitches)
-                    chord_pitches = [p for p in chord_pitches if p in self.context.scale_pitches]
-                    if len(chord_pitches) < original_count:
-                        print(f"Warning: Filtered {original_count - len(chord_pitches)} pitches from chord {chord_symbol} to adhere to scale")
-                    if not chord_pitches:
-                        print(f"Warning: Chord {chord_symbol} has no pitches in scale {self.context.scale_pitches[:7]}...")
-
-                # Apply random inversion for voice leading
-                if chord_pitches:
-                    inversion_level = random.randint(0, min(2, len(chord_pitches) - 1)) # Limit to 0, 1, or 2
-                    chord_pitches = self.context.music_theory.get_chord_inversion(chord_pitches, inversion_level)
-
-                # Create chord if pitches were successfully generated and not empty after filtering
-                if chord_pitches:
-                    # Determine chord voicing size based on chord complexity and density
-                    max_notes = len(chord_pitches)
-                    if chord_complexity == 'simple':
-                        voicing_size = min(2, max_notes)  # Just root and basic harmony
-                    elif chord_complexity == 'medium':
-                        voicing_size = min(3, max_notes)  # Root, third, fifth
-                    else:  # complex
-                        voicing_size = max_notes  # Full chord voicing
-
-                    # Apply density management to further refine voicing
-                    voicing_size = self.context.density_manager.get_chord_voicing_size(voicing_size)
-
-                    # Select subset of pitches based on determined voicing size
-                    if voicing_size < len(chord_pitches):
-                        chord_pitches = chord_pitches[:voicing_size]
-
-                    # Update chord duration to be more musical (slightly shorter than full bar)
-                    chord_duration = 3.5
-
-                    # Create chord notes with simultaneous start time and proper duration
-                    chord_notes = []
-                    for j, pitch in enumerate(chord_pitches):
-                        # Adjust velocity based on mood and metric position
-                        base_velocity = get_velocity_for_mood(self.context.mood)
-                        
-                        # Emphasize notes on strong beats (e.g., beat 1 and 3 in 4/4)
-                        beat_in_bar = start_time % 4 # Assuming 4 beats per bar
-                        if beat_in_bar == 0: # Strong beat 1
-                            velocity = min(127, base_velocity + 20)
-                        elif beat_in_bar == 2: # Medium strong beat 3
-                            velocity = min(127, base_velocity + 10)
-                        else: # Weak beats
-                            velocity = base_velocity
-
-                        # Add a small random variation for humanization
-                        velocity = max(0, min(127, velocity + random.randint(-5, 5)))
-
-                        # All chord notes start simultaneously
-                        assert pitch in self.context.scale_pitches, f"Harmony chord pitch {pitch} not in scale {self.context.scale_pitches}"
-                        note = Note(pitch, chord_duration, velocity, start_time)
-                        chord_notes.append(note)
-
-                    # Create the chord object and add it to the pattern
-                    chord = Chord(chord_notes, start_time)
-                    chords.append(chord)
-                else:
-                    print(f"Warning: Could not generate chord for {chord_symbol}")
-            except Exception as e:
-                print(f"Error generating chord {chord_symbol}: {e}")
-
-            # Advance start time by one bar (4 beats)
-            start_time += 4.0
-
-        # Return the harmony pattern
-        return Pattern(PatternType.HARMONY, notes, chords)
-
-    def _parse_chord_symbol(self, chord_symbol: str) -> List[int]:
-        """Parse a chord symbol like 'Am', 'Fmaj7', 'Bb' into MIDI pitches.
-
-        Args:
-            chord_symbol: Chord name (e.g., 'Am', 'Fmaj7')
-
-        Returns:
-            List of MIDI pitch values for the chord
+            # Fallback for standalone use
+            self.key = 'C'
+            self.scale = ScaleType.MAJOR
+            self.scale_str = 'C major'
+            self.genre_rules = None
+            self.chord_progressions = self._load_genre_progressions('pop')
+            self.mood = 'neutral'
+        self.music_theory = MusicTheory()
+    
+    def _load_genre_progressions(self, genre: str) -> List[List[str]]:
         """
-        from music_theory import MusicTheory, Note, ChordType
-
-        # Parse root note
-        chord_symbol = chord_symbol.strip()
-
-        # Handle root note
-        if chord_symbol.startswith(('A#', 'Bb', 'C#', 'D#', 'F#', 'G#')):
-            if chord_symbol.startswith('A#'):
-                root_name = 'A#'
-                remainder = chord_symbol[2:]
-            elif chord_symbol.startswith('Bb'):
-                root_name = 'Bb'
-                remainder = chord_symbol[2:]
-            elif chord_symbol.startswith('C#'):
-                root_name = 'C#'
-                remainder = chord_symbol[2:]
-            elif chord_symbol.startswith('D#'):
-                root_name = 'D#'
-                remainder = chord_symbol[2:]
-            elif chord_symbol.startswith('F#'):
-                root_name = 'F#'
-                remainder = chord_symbol[2:]
-            elif chord_symbol.startswith('G#'):
-                root_name = 'G#'
-                remainder = chord_symbol[2:]
-        else:
-            root_name = chord_symbol[0]
-            remainder = chord_symbol[1:]
-
-        # Map to Note enum
-        note_map = {
-            'C': Note.C, 'C#': Note.C_SHARP, 'Db': Note.C_SHARP,
-            'D': Note.D, 'D#': Note.D_SHARP, 'Eb': Note.D_SHARP,
-            'E': Note.E, 'F': Note.F, 'F#': Note.F_SHARP, 'Gb': Note.F_SHARP,
-            'G': Note.G, 'G#': Note.G_SHARP, 'Ab': Note.G_SHARP,
-            'A': Note.A, 'A#': Note.A_SHARP, 'Bb': Note.A_SHARP,
-            'B': Note.B
+        Load predefined chord progressions for fallback genres.
+        """
+        progressions = {
+            'jazz': [
+                ['ii', 'V', 'I'],
+                ['vi', 'ii', 'V', 'I'],
+                ['I', 'vi', 'ii', 'V'],
+            ],
+            'pop': [
+                ['I', 'V', 'vi', 'IV'],
+                ['I', 'IV', 'V'],
+                ['vi', 'IV', 'I', 'V'],
+            ],
+            'rock': [
+                ['I', 'IV', 'V'],
+                ['vi', 'IV', 'I', 'V'],
+            ],
+            'electronic': [
+                ['I', 'vi', 'IV', 'V'],
+                ['i', 'VI', 'III', 'VII'],
+            ]
         }
-
-        root_note = note_map.get(root_name)
-        if root_note is None:
-            return []
-
-        # Determine chord type
-        remainder = remainder.lower()
-        if remainder in ['m', 'min', 'minor']:
-            chord_type = ChordType.MINOR
-        elif remainder in ['7']:
-            chord_type = ChordType.DOMINANT_7TH
-        elif remainder in ['maj7', 'major7']:
-            chord_type = ChordType.MAJOR_7TH
-        elif remainder in ['m7', 'min7', 'minor7']:
-            chord_type = ChordType.MINOR_7TH
-        elif remainder in ['dim', 'diminished']:
-            chord_type = ChordType.DIMINISHED
-        elif remainder in ['aug', 'augmented']:
-            chord_type = ChordType.AUGMENTED
-        elif remainder in ['dim7', 'diminished7']:
-            chord_type = ChordType.DIMINISHED_7TH
-        elif remainder in ['sus2']:
-            chord_type = ChordType.SUS2
-        elif remainder in ['sus4']:
-            chord_type = ChordType.SUS4
-        else:  # Default to major
-            chord_type = ChordType.MAJOR
-
-        # Generate chord pitches
-        return MusicTheory.build_chord(root_note, chord_type)
+        return progressions.get(genre.lower(), progressions['pop'])
+    
+    def initialize_harmony(self, genre: str, mood: str, tempo: int = 120):
+        """
+        Initialize key and scale based on genre and mood using context if available.
+        """
+        if self.context:
+            # Use context's key and scale
+            pass  # Already set in __init__
+        else:
+            # Fallback initialization
+            self.key = 'C'
+            self.scale = ScaleType.MAJOR
+            self.scale_str = 'C major'
+    
+    def generate(self, num_bars: int, chord_complexity: str = 'medium', harmonic_variance: str = 'medium') -> Pattern:
+        """
+        Generate a harmony pattern with specified complexity and variance.
+        
+        Args:
+            num_bars: Number of bars for the progression
+            chord_complexity: 'simple', 'medium', 'complex' for chord extensions
+            harmonic_variance: 'close', 'medium', 'distant' for progression selection
+            
+        Returns:
+            Pattern object with harmony
+        """
+        if self.context:
+            genre = self.context.genre_rules.get_genre_name()
+            mood = self.context.mood
+        else:
+            genre = 'pop'
+            mood = 'neutral'
+        
+        self.initialize_harmony(genre, mood)
+        
+        # Filter progressions by harmonic variance
+        filtered_progressions = self.music_theory.filter_progressions_by_distance(
+            self.chord_progressions, self.scale_str, harmonic_variance
+        )
+        if not filtered_progressions:
+            filtered_progressions = self.chord_progressions
+        
+        # Select a progression template
+        progression_template = random.choice(filtered_progressions)
+        # Extend to fit num_bars
+        full_progression = (progression_template * (num_bars // len(progression_template) + 1))[:num_bars]
+        
+        chords = []
+        for roman_numeral in full_progression:
+            # Get base chord pitches using MusicTheory
+            base_pitches = self.music_theory.get_chord_pitches_from_roman(roman_numeral, self.scale_str)
+            if not base_pitches:
+                # Fallback
+                base_pitches = [60, 64, 67]  # C major
+            
+            # Add extensions based on complexity
+            pitches = self._add_chord_extensions(base_pitches, chord_complexity, roman_numeral)
+            
+            # Create notes with duration (whole note for chords)
+            velocity = get_velocity_for_mood(self.mood)
+            chord_notes = [Note(pitch=p, velocity=velocity, duration=4.0) for p in pitches]
+            chord = Chord(notes=chord_notes)
+            chords.append(chord)
+        
+        # Create pattern
+        all_notes = []
+        for chord in chords:
+            all_notes.extend(chord.notes)
+        pattern = Pattern(
+            pattern_type=PatternType.HARMONY,
+            notes=all_notes,
+            chords=chords
+        )
+        return pattern
+    
+    def _add_chord_extensions(self, base_pitches: List[int], complexity: str, roman_numeral: str) -> List[int]:
+        """
+        Add extensions to base chord pitches based on complexity.
+        """
+        if complexity == 'simple':
+            return base_pitches[:3]  # Triad only
+        elif complexity == 'medium':
+            return base_pitches  # As is (may include 7th if in roman)
+        elif complexity == 'complex':
+            # Add 7th or 9th if not present
+            root = base_pitches[0]
+            # Determine if major/minor from roman
+            is_major = roman_numeral.isupper() and not roman_numeral.lower().startswith('v')
+            if is_major:
+                # Add maj7 if not present
+                maj7 = root + 11
+                if maj7 not in base_pitches:
+                    base_pitches.append(maj7)
+            else:
+                # Add min7
+                min7 = root + 10
+                if min7 not in base_pitches:
+                    base_pitches.append(min7)
+            # Sort and limit to octave
+            base_pitches = sorted(set(p % 12 + (p // 12) * 12 for p in base_pitches))[:5]
+            return base_pitches
+        return base_pitches
+    
+    def generate_harmony_pattern(self, genre: str, mood: str, bars: int = 16) -> Pattern:
+        """
+        Generate a full harmony pattern (legacy method, uses generate internally).
+        """
+        return self.generate(bars, 'medium', 'medium')
+    
+    def refine_harmony(self, melody_notes: List[Note], existing_chords: List[Chord]) -> List[Chord]:
+        """
+        Refine existing chords to better support the melody.
+        """
+        # Simple implementation: adjust chord voicings to include melody notes if possible
+        refined_chords = []
+        for chord in existing_chords:
+            # Check if melody note fits in chord
+            for note in melody_notes:
+                if note.pitch in [n.pitch for n in chord.notes]:
+                    # Note fits, keep chord
+                    break
+            else:
+                # Adjust closest chord note to melody if possible
+                adjusted_notes = chord.notes.copy()
+                # Implementation placeholder: keep as is for now
+                pass
+            refined_chords.append(chord)
+        return refined_chords

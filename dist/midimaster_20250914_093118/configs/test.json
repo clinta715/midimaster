@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "name": "test",
+  "description": "Test config",
+  "timestamp": "2025-09-12T17:23:30.471055",
+  "parameters": {
+    "genre": "jazz",
+    "mood": "sad",
+    "tempo": 120,
+    "bars": 16,
+    "density": "balanced",
+    "output_folder": "output/"
+  }
+}

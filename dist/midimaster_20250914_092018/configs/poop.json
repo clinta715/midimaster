@@ -1,0 +1,15 @@
+{
+  "version": "1.0",
+  "name": "poop",
+  "description": "Configuration saved from GUI",
+  "timestamp": "2025-09-12T15:08:02.803278",
+  "parameters": {
+    "genre": "pop",
+    "mood": "happy",
+    "tempo": 120,
+    "bars": 16,
+    "density": "balanced",
+    "output_folder": "output/",
+    "output": "output.mid"
+  }
+}

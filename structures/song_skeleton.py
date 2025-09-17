@@ -27,10 +27,22 @@ class SongSkeleton:
     musical content into a coherent structure.
     """
     
+    genre: str
+    tempo: int
+    mood: str
+    title: str
+    bars: int
+    key: str
+    scale: str
+    bpm: int
+    sections: List[Tuple[SectionType, List[Pattern]]]
+    patterns: List[Pattern]
+    time_signatures: Dict[PatternType, Tuple[int, int]]
+    
     def __init__(self, genre: str, tempo: int, mood: str):
         """
         Initialize a SongSkeleton.
-
+ 
         Args:
             genre: Music genre (e.g., 'pop', 'rock', 'jazz')
             tempo: Tempo in BPM (beats per minute)
@@ -39,8 +51,13 @@ class SongSkeleton:
         self.genre = genre
         self.tempo = tempo
         self.mood = mood
-        # Dictionary mapping section types to lists of patterns
-        self.sections: Dict[SectionType, List[Pattern]] = {}
+        self.title = ""
+        self.bars = 0
+        self.key = "C"
+        self.scale = "major"
+        self.bpm = tempo
+        # Ordered list of (section_type, patterns) preserving multiple occurrences and order
+        self.sections: List[Tuple[SectionType, List[Pattern]]] = []
         # List of all patterns in the song (including those in sections)
         self.patterns: List[Pattern] = []
         # Time signatures per pattern type: Dict[PatternType, Tuple[numerator, denominator]]
@@ -174,7 +191,8 @@ class SongSkeleton:
 
     def __repr__(self):
         """Return a string representation of the SongSkeleton."""
-        return f"SongSkeleton(genre={self.genre}, tempo={self.tempo}, mood={self.mood}, sections={list(self.sections.keys())})"
+        section_types = [s.name for s, _ in self.sections]
+        return f"SongSkeleton(genre={self.genre}, tempo={self.tempo}, mood={self.mood}, sections={section_types})"
     
     def add_pattern(self, pattern: Pattern):
         """Add a pattern to the song.
@@ -188,63 +206,56 @@ class SongSkeleton:
         self.patterns.append(pattern)
     
     def add_section(self, section_type: SectionType, patterns: List[Pattern]):
-        """Add a section with its patterns to the song.
-        
-        Organizes patterns into named sections (verse, chorus, etc.) that
-        form the high-level structure of the song.
-        
-        Args:
-            section_type: Type of section to add (verse, chorus, bridge, etc.)
-            patterns: List of patterns for this section
-        """
-        self.sections[section_type] = patterns
+        """Add a section with its patterns to the song in order (supports repeats)."""
+        self.sections.append((section_type, patterns))
     
     def build_arrangement(self, patterns: List[Pattern]):
         """
-        Build a song arrangement based on dynamic structure generation.
-
-        This method creates a song arrangement by organizing patterns
-        into dynamically generated song sections, considering genre and mood.
-
+        Build a simple ordered song arrangement using the dynamic structure.
+    
+        This preserves multiple occurrences of the same section type by storing sections
+        as an ordered list. It cycles through available patterns if needed.
+    
         Args:
             patterns: List of patterns to arrange
         """
-        self.sections = {}
-        self.patterns = patterns # Store all generated patterns
-
+        # Reset and store all generated patterns
+        self.sections = []
+        self.patterns = patterns
+    
         dynamic_structure = self.generate_dynamic_structure(self.genre, self.mood)
-
-        # Group patterns by type for easier assignment
+    
+        # Group patterns by type for easier assignment and maintain cyclic indices
         patterns_by_type = {
             PatternType.MELODY: [p for p in patterns if p.pattern_type == PatternType.MELODY],
             PatternType.HARMONY: [p for p in patterns if p.pattern_type == PatternType.HARMONY],
             PatternType.BASS: [p for p in patterns if p.pattern_type == PatternType.BASS],
             PatternType.RHYTHM: [p for p in patterns if p.pattern_type == PatternType.RHYTHM]
         }
-
-        # Assign patterns to sections based on the dynamic structure
+        indices = {ptype: 0 for ptype in patterns_by_type.keys()}
+    
+        def next_pattern(ptype: PatternType) -> Optional[Pattern]:
+            if not patterns_by_type[ptype]:
+                return None
+            i = indices[ptype] % len(patterns_by_type[ptype])
+            indices[ptype] += 1
+            return patterns_by_type[ptype][i]
+    
+        # Assign patterns to sections in order
         for section_type in dynamic_structure:
-            if section_type not in self.sections:
-                self.sections[section_type] = []
-
-            # Simple assignment logic for now. Can be expanded for more sophistication.
-            if section_type == SectionType.SOLO and patterns_by_type[PatternType.MELODY]:
-                # Solo sections can use a melody pattern
-                self.sections[section_type].append(patterns_by_type[PatternType.MELODY].pop(0))
-            elif section_type == SectionType.FILL and patterns_by_type[PatternType.RHYTHM]:
-                # Fills can use a rhythm pattern
-                self.sections[section_type].append(patterns_by_type[PatternType.RHYTHM].pop(0))
-            # For other section types (INTRO, VERSE, CHORUS, BRIDGE, OUTRO, PRE_CHORUS, POST_CHORUS),
-            # we can assign a combination of patterns or specific ones based on more complex rules.
-            # For simplicity, let's assign all remaining patterns to the first occurrence of a general section type.
-            # This part needs more sophisticated logic for a truly dynamic arrangement.
-            elif section_type in [SectionType.INTRO, SectionType.VERSE, SectionType.CHORUS, SectionType.BRIDGE, SectionType.OUTRO, SectionType.PRE_CHORUS, SectionType.POST_CHORUS]:
-                # Assign a mix of patterns if available and not yet assigned
-                if patterns_by_type[PatternType.MELODY] and not any(p.pattern_type == PatternType.MELODY for p in self.sections[section_type]):
-                    self.sections[section_type].append(patterns_by_type[PatternType.MELODY].pop(0))
-                if patterns_by_type[PatternType.HARMONY] and not any(p.pattern_type == PatternType.HARMONY for p in self.sections[section_type]):
-                    self.sections[section_type].append(patterns_by_type[PatternType.HARMONY].pop(0))
-                if patterns_by_type[PatternType.BASS] and not any(p.pattern_type == PatternType.BASS for p in self.sections[section_type]):
-                    self.sections[section_type].append(patterns_by_type[PatternType.BASS].pop(0))
-                if patterns_by_type[PatternType.RHYTHM] and not any(p.pattern_type == PatternType.RHYTHM for p in self.sections[section_type]):
-                    self.sections[section_type].append(patterns_by_type[PatternType.RHYTHM].pop(0))
+            section_patterns: List[Pattern] = []
+            if section_type == SectionType.SOLO:
+                mp = next_pattern(PatternType.MELODY)
+                if mp:
+                    section_patterns.append(mp)
+            elif section_type == SectionType.FILL:
+                rp = next_pattern(PatternType.RHYTHM)
+                if rp:
+                    section_patterns.append(rp)
+            else:
+                # General sections get a blend of available parts
+                for ptype in (PatternType.MELODY, PatternType.HARMONY, PatternType.BASS, PatternType.RHYTHM):
+                    p = next_pattern(ptype)
+                    if p:
+                        section_patterns.append(p)
+            self.sections.append((section_type, section_patterns))

@@ -246,6 +246,15 @@ class MidiAnalyzer:
 
         results['channels_used'] = len(channels_used)
         results['channel_distribution'] = dict(channel_counts)
+        results['channels_used'] = len(channels_used)
+        results['channel_distribution'] = dict(channel_counts)
+
+        # Calculate total duration for density calculations
+        sorted_notes = sorted(self.notes, key=lambda x: x['start_time'])
+        total_duration = sorted_notes[-1]['end_time'] - sorted_notes[0]['start_time'] if self.notes else 0
+        results['total_duration'] = total_duration
+
+        # Simultaneous notes analysis (potential chords)
 
         # Simultaneous notes analysis (potential chords)
         all_chords = []

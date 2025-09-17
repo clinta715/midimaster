@@ -1,0 +1,47 @@
+{
+  "version": "1.0",
+  "name": "config_dnb_happy_20250913_202735",
+  "description": "",
+  "timestamp": "2025-09-13T20:27:35.294050",
+  "parameters": {
+    "genre": "dnb",
+    "mood": "happy",
+    "key": "F#",
+    "mode": "major",
+    "tempo": 140,
+    "bars": 32,
+    "density": "dense",
+    "output": "output.mid",
+    "separate_files": false,
+    "subgenre": "",
+    "output_folder": "output/",
+    "time_signatures": {
+      "melody": "4/4",
+      "harmony": "4/4",
+      "bass": "4/4",
+      "rhythm": "4/4"
+    },
+    "harmonic_variance": "distant",
+    "generate_parts": {
+      "melody": true,
+      "harmony": true,
+      "bass": true,
+      "rhythm": true
+    },
+    "performance": {
+      "swing_mode": "eighth",
+      "micro_timing_range_ms": 6.0,
+      "grid_bias_ms": 0.0,
+      "note_length_variance": 0.1,
+      "staccato_prob": 0.1,
+      "tenuto_prob": 0.2,
+      "marcato_prob": 0.1,
+      "marcato_velocity_boost": 12,
+      "velocity_profile": {
+        "shape": "arch",
+        "intensity": 0.3,
+        "phrase_length_beats": 4.0
+      }
+    }
+  }
+}

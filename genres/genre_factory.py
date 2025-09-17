@@ -12,7 +12,7 @@ a simple interface for creating genre rule objects.
 from typing import Dict, Any
 from .genre_rules import (
     PopRules, RockRules, JazzRules,
-    ElectronicRules, HipHopRules, ClassicalRules, DnBRules, GenreRules
+    ElectronicRules, HipHopRules, ClassicalRules, DnBRules, AmbientRules, GenreRules
 )
 
 
@@ -28,6 +28,25 @@ class GenreFactory:
     2. Genre creation is centralized in one place
     3. The rest of the program doesn't need to know about specific rule classes
     """
+    
+    genre_map = {
+        'pop': PopRules,
+        'rock': RockRules,
+        'jazz': JazzRules,
+        'electronic': ElectronicRules,
+        'hip-hop': HipHopRules,
+        'classical': ClassicalRules,
+        'dnb': DnBRules,
+        'drum-and-bass': DnBRules,
+        'ambient': AmbientRules
+    }
+    
+    @staticmethod
+    def get_available_genres() -> list:
+        """Get list of all supported genres."""
+        genres = sorted(list(GenreFactory.genre_map.keys()))
+        print("Available genres from GenreFactory:", genres)  # Log for validation
+        return genres
     
     @staticmethod
     def create_genre_rules(genre: str) -> GenreRules:
@@ -46,21 +65,8 @@ class GenreFactory:
         Raises:
             ValueError: If the genre is not supported
         """
-        # Map genre names to their corresponding rule classes
-        genre_map = {
-            'pop': PopRules,
-            'rock': RockRules,
-            'jazz': JazzRules,
-            'electronic': ElectronicRules,
-            'hip-hop': HipHopRules,
-            'classical': ClassicalRules,
-            'dnb': DnBRules,
-            'drum-and-bass': DnBRules
-        }
-        
-        # Validate that the requested genre is supported
-        if genre not in genre_map:
+        print(f"Creating rules for genre: {genre}")  # Log for validation
+        if genre not in GenreFactory.genre_map:
             raise ValueError(f"Unsupported genre: {genre}")
             
-        # Create an instance of the appropriate rule class
-        return genre_map[genre]()
+        return GenreFactory.genre_map[genre]()

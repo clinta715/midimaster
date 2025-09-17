@@ -1,7 +1,0 @@
-{
-  "temp_directory": "./test_temp",
-  "auto_cleanup": true,
-  "retention_hours": 1,
-  "max_size_mb": 10,
-  "last_cleanup": "2025-09-12T20:51:58.118283"
-}

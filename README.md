@@ -353,3 +353,95 @@ This project is open source and available under the MIT License.
 - Uses the [mido](https://mido.readthedocs.io/) library for MIDI file handling
 - Inspired by algorithmic composition techniques
 - Built with music theory principles from classical and contemporary sources
+## What’s New
+
+The latest release adds three capabilities across CLI and GUI:
+- Filename templating for output paths with placeholders and subdirectories
+- Settings presets (save/load/list/delete) with on-disk storage
+- Rhythms DB path resolution and validation via CLI, env, and config
+
+See the detailed reference:
+- [docs/filename_templating.md](docs/filename_templating.md)
+- [docs/api.md](docs/api.md)
+
+## Quick Start: New CLI Workflows
+
+- Save a preset
+  ```
+  python main.py --genre jazz --tempo 90 --mood calm --bars 4 --save-preset mellow_jazz
+  ```
+  Uses preset manager [python.SettingsPresetManager.save_preset()](core/settings_preset_manager.py:47) behind the scenes.
+
+- List presets
+  ```
+  python main.py --list-presets
+  ```
+  Handled in CLI at [main.py](main.py:291) and powered by [python.SettingsPresetManager.list_presets()](core/settings_preset_manager.py:108).
+
+- Load a preset and override with CLI flags
+  ```
+  python main.py --load-preset mellow_jazz --tempo 120
+  ```
+  Resolution/merge performed by [python.resolve_effective_settings()](core/config_loader.py:83).
+
+- Override rhythms database (CLI)
+  ```
+  python main.py --rhythms-db ./reference_midis/midi8
+  ```
+  Resolved/validated via:
+  - [python.RhythmsDbResolver.get_rhythms_db_path()](core/rhythms_db_resolver.py:69)
+  - [python.RhythmsDbResolver.validate_path()](core/rhythms_db_resolver.py:98)
+  CLI validation occurs at [main.py](main.py:311).
+
+- Use filename template
+  ```
+  python main.py --filename-template "runs/{genre}_{mood}_{tempo}_{bars}_{stem}"
+  ```
+  Template is validated by [python.validate_template()](core/filename_templater.py:118) and rendered by [python.format_filename()](core/filename_templater.py:170) when saving via [python.MidiOutput.save_to_midi()](output/midi_output.py:312).
+
+Placeholders supported include {genre}, {mood}, {tempo}, {bars}, {timestamp}, {stem}, {run_index}, {unique_id}. See [docs/filename_templating.md](docs/filename_templating.md).
+
+## Settings Resolution and Merge Order
+
+Effective settings are computed by [python.resolve_effective_settings()](core/config_loader.py:83) using this priority (low → high):
+1) Built-in defaults (genre, mood, tempo, bars)
+2) User config [python.load_settings_json()](core/config_loader.py:24) (filename_template, rhythms_db_path, default_preset)
+3) Legacy temp settings (configs/temp_settings.json) for rhythms_db_path
+4) Preset load via `--load-preset` or settings.json `default_preset` (validated with [python.SettingsPresetManager.validate_preset()](core/settings_preset_manager.py:174))
+5) Explicit CLI overrides, including:
+   - Core fields (genre, mood, tempo, bars)
+   - `--filename-template` (validated in CLI at [main.py](main.py:305))
+   - `--rhythms-db` (validated in CLI at [main.py](main.py:311))
+
+Preset operations:
+- Save: [python.SettingsPresetManager.save_preset()](core/settings_preset_manager.py:47)
+- Load: [python.SettingsPresetManager.load_preset()](core/settings_preset_manager.py:87)
+- List: [python.SettingsPresetManager.list_presets()](core/settings_preset_manager.py:108)
+- Delete: [python.SettingsPresetManager.delete_preset()](core/settings_preset_manager.py:127)
+
+Rhythms DB resolution order: override → env → config → default
+- Override: `--rhythms-db`
+- Env: `MIDIMASTER_RHYTHMS_DB`
+- Config: configs/settings.json (fallback to configs/temp_settings.json)
+- Default: ./reference_midis
+Implemented by:
+- [python.RhythmsDbResolver.get_rhythms_db_path()](core/rhythms_db_resolver.py:69)
+- [python.RhythmsDbResolver.validate_path()](core/rhythms_db_resolver.py:98)
+- [python.RhythmsDbResolver.set_config_path()](core/rhythms_db_resolver.py:135)
+
+## GUI Usage Highlights
+
+Session Settings group (see [gui/parameter_controls.py](gui/parameter_controls.py)):
+- Presets (dropdown + Save/Load/Delete)
+  - Uses [python.SettingsPresetManager.save_preset()](core/settings_preset_manager.py:47), [python.SettingsPresetManager.load_preset()](core/settings_preset_manager.py:87), [python.SettingsPresetManager.delete_preset()](core/settings_preset_manager.py:127)
+  - Files stored under configs/presets (index at configs/presets/index.json)
+- Rhythms DB path
+  - Browse and Apply with optional “Set as default” persistence to configs/settings.json via [python.RhythmsDbResolver.set_config_path()](core/rhythms_db_resolver.py:135)
+- Filename template
+  - Template field with live validation and preview using GUI helpers:
+    - [python.validate_template()](core/filename_templater.py:118)
+    - [python.resolve_placeholders()](core/filename_templater.py:78)
+    - Preview builder [python.build_preview_filename()](gui/settings_helpers.py:39) (pure string; no I/O)
+  - On generation, actual saving applies full sanitization/uniqueness via [python.format_filename()](core/filename_templater.py:170) in [python.MidiOutput.save_to_midi()](output/midi_output.py:312).
+
+For an in-depth templating guide, see [docs/filename_templating.md](docs/filename_templating.md).

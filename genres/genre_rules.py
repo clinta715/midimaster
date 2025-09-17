@@ -209,6 +209,66 @@ class GenreRules:
             'tempo_range': (60, 180)
         }
 
+    def get_genre_characteristics(self, subgenre: Optional[str] = None) -> Dict[str, Any]:
+        """Get genre characteristics including tempo range, swing, and syncopation for validation.
+
+        These characteristics are used to ensure generated patterns align with genre expectations.
+
+        Args:
+            subgenre: Optional subgenre to get characteristics for
+
+        Returns:
+            Dict with keys: 'tempo_min', 'tempo_max', 'swing_factor', 'syncopation_level'
+        """
+        char = self.get_beat_characteristics(subgenre)
+        return {
+            'tempo_min': char['tempo_range'][0],
+            'tempo_max': char['tempo_range'][1],
+            'swing_factor': char['swing_factor'],
+            'syncopation_level': char['syncopation_level'],
+        }
+    def get_genre_name(self) -> str:
+        """Get the genre name from the class name."""
+        return self.__class__.__name__.rstrip('Rules').lower()
+
+    def get_rhythm_patterns_for_subgenre(self, subgenre: Optional[str] = None) -> List[Dict[str, Any]]:
+        """
+        Get rhythm patterns filtered or specialized for a subgenre.
+        Default implementation returns base rhythm patterns unchanged.
+        """
+        return self.get_rhythm_patterns()
+
+    def get_drum_patterns(self, subgenre: Optional[str] = None) -> List[Dict[str, Any]]:
+        """
+        Structured drum pattern templates for per-voice placement.
+
+        Each template dictionary may include:
+          - 'name': str
+          - 'steps_per_bar': int (default 16 for 4/4 at 16th-note grid)
+          - 'voices': Dict[str, List[int]] mapping voice names to step indices
+              Supported voice keys: 'kick','snare','ghost_snare','rim','ch','oh','clap','ride','crash'
+          - 'weight': Optional[float] selection weight
+
+        Base class returns an empty list (no per-voice drums defined).
+        """
+        return []
+
+    def get_melody_style(self, subgenre: Optional[str] = None) -> Dict[str, Any]:
+        """
+        Get melody style parameters (contours, interval weights, register) for optional subgenre.
+        Returns a dict with keys:
+          - contour_weights: Dict[str,float] for 'rising','falling','arc','valley'
+          - interval_weights: Dict[int,float] for step/leap sizes in diatonic steps
+          - min_pitch: Optional[int] absolute MIDI pitch minimum (None=unconstrained)
+          - max_pitch: Optional[int] absolute MIDI pitch maximum (None=unconstrained)
+        """
+        return {
+            'contour_weights': {'rising': 0.25, 'falling': 0.25, 'arc': 0.25, 'valley': 0.25},
+            'interval_weights': {1: 0.4, 2: 0.3, 3: 0.15, 4: 0.1, 5: 0.05},
+            'min_pitch': None,
+            'max_pitch': None
+        }
+
 
 class PopRules(GenreRules):
     """Rules for pop music.
@@ -321,8 +381,60 @@ class PopRules(GenreRules):
                 'syncopation_level': 0.2,
                 'emphasis_patterns': [1, 2, 3, 4]  # More driving rhythm
             })
+        elif subgenre == 'synth_pop':
+            characteristics.update({
+                'swing_factor': 0.52,
+                'syncopation_level': 0.25,
+                'tempo_range': (90, 130)
+            })
+        elif subgenre == 'indie_pop':
+            characteristics.update({
+                'swing_factor': 0.55,
+                'syncopation_level': 0.35,
+                'tempo_range': (85, 125)
+            })
 
         return characteristics
+
+    def get_rhythm_patterns_for_subgenre(self, subgenre: Optional[str] = None) -> List[Dict[str, Any]]:
+        base = self.get_rhythm_patterns()
+        if subgenre == 'dance_pop':
+            return [
+                {'name': 'four_on_floor', 'pattern': [1.0, 1.0, 1.0, 1.0]},
+                {'name': 'syncopated', 'pattern': [0.25, 0.25, 0.5, 0.5, 0.5]},
+            ]
+        if subgenre == 'synth_pop':
+            return [
+                {'name': 'straight_eight', 'pattern': [0.5, 0.5, 0.5, 0.5]},
+                {'name': 'syncopated', 'pattern': [0.25, 0.25, 0.5, 0.5, 0.5]},
+            ]
+        if subgenre == 'indie_pop':
+            return [
+                {'name': 'indie_groove', 'pattern': [0.5, 0.25, 0.25, 0.5, 0.5]},
+            ]
+        return base
+
+    def get_melody_style(self, subgenre: Optional[str] = None) -> Dict[str, Any]:
+        style = super().get_melody_style(subgenre)
+        if subgenre == 'synth_pop':
+            style.update({
+                'contour_weights': {'rising': 0.25, 'falling': 0.2, 'arc': 0.4, 'valley': 0.15},
+                'interval_weights': {1: 0.5, 2: 0.3, 3: 0.12, 4: 0.06, 5: 0.02},
+                'min_pitch': 60, 'max_pitch': 84
+            })
+        elif subgenre == 'dance_pop':
+            style.update({
+                'contour_weights': {'rising': 0.3, 'falling': 0.2, 'arc': 0.4, 'valley': 0.1},
+                'interval_weights': {1: 0.45, 2: 0.3, 3: 0.15, 4: 0.07, 5: 0.03},
+                'min_pitch': 62, 'max_pitch': 86
+            })
+        elif subgenre == 'indie_pop':
+            style.update({
+                'contour_weights': {'rising': 0.2, 'falling': 0.25, 'arc': 0.25, 'valley': 0.3},
+                'interval_weights': {1: 0.42, 2: 0.28, 3: 0.18, 4: 0.08, 5: 0.04},
+                'min_pitch': 57, 'max_pitch': 81
+            })
+        return style
 
 
 class RockRules(GenreRules):
@@ -532,7 +644,7 @@ class JazzRules(GenreRules):
         characteristics = {
             'swing_factor': 0.66,
             'syncopation_level': 0.6,
-            'emphasis_patterns': [1, 3],  # Swing emphasis
+            'emphasis_patterns': [1, 3], # Swing emphasis
             'tempo_range': (120, 200)
         }
 
@@ -628,7 +740,7 @@ class ElectronicRules(GenreRules):
         Returns:
             List of electronic subgenres
         """
-        return ['house', 'techno', 'ambient', 'dubstep', 'trance']
+        return ['house', 'deep_house', 'techno', 'dub_techno', 'ambient', 'dubstep', 'trance']
 
     def get_beat_characteristics(self, subgenre: Optional[str] = None) -> Dict[str, Any]:
         """Get beat characteristics for electronic music.
@@ -643,7 +755,7 @@ class ElectronicRules(GenreRules):
         characteristics = {
             'swing_factor': 0.5,
             'syncopation_level': 0.4,
-            'emphasis_patterns': [1, 2, 3, 4],  # Steady beat
+            'emphasis_patterns': [1, 2, 3, 4], # Steady beat
             'tempo_range': (120, 140)
         }
 
@@ -660,8 +772,62 @@ class ElectronicRules(GenreRules):
                 'syncopation_level': 0.5,
                 'tempo_range': (120, 135)
             })
+        elif subgenre == 'deep_house':
+            characteristics.update({
+                'swing_factor': 0.58,
+                'syncopation_level': 0.5,
+                'tempo_range': (120, 124)
+            })
+        elif subgenre == 'dub_techno':
+            characteristics.update({
+                'swing_factor': 0.56,
+                'syncopation_level': 0.35,
+                'tempo_range': (110, 125)
+            })
 
         return characteristics
+
+    def get_rhythm_patterns_for_subgenre(self, subgenre: Optional[str] = None) -> List[Dict[str, Any]]:
+        base = self.get_rhythm_patterns()
+        if subgenre in ('house', 'deep_house'):
+            return [
+                {'name': 'four_on_floor', 'pattern': [1.0, 1.0, 1.0, 1.0]},
+                {'name': 'offbeat_hat', 'pattern': [0.5, 0.5, 0.5, 0.5]},
+                {'name': 'syncopated', 'pattern': [0.25, 0.25, 0.5, 0.5, 0.5]},
+            ]
+        if subgenre == 'dub_techno':
+            return [
+                {'name': 'four_on_floor', 'pattern': [1.0, 1.0, 1.0, 1.0]},
+                {'name': 'dub_chord_stab', 'pattern': [1.0, 1.0, 2.0]},
+            ]
+        if subgenre == 'techno':
+            return [
+                {'name': 'four_on_floor', 'pattern': [1.0, 1.0, 1.0, 1.0]},
+                {'name': 'straight_sixteenth', 'pattern': [0.25]*16},
+            ]
+        return base
+
+    def get_melody_style(self, subgenre: Optional[str] = None) -> Dict[str, Any]:
+        style = super().get_melody_style(subgenre)
+        if subgenre in ('house', 'deep_house'):
+            style.update({
+                'contour_weights': {'rising': 0.3, 'falling': 0.2, 'arc': 0.4, 'valley': 0.1},
+                'interval_weights': {1: 0.5, 2: 0.3, 3: 0.1, 4: 0.07, 5: 0.03},
+                'min_pitch': 60, 'max_pitch': 84
+            })
+        elif subgenre == 'dub_techno':
+            style.update({
+                'contour_weights': {'rising': 0.1, 'falling': 0.3, 'arc': 0.2, 'valley': 0.4},
+                'interval_weights': {1: 0.6, 2: 0.25, 3: 0.1, 4: 0.04, 5: 0.01},
+                'min_pitch': 57, 'max_pitch': 74
+            })
+        elif subgenre == 'techno':
+            style.update({
+                'contour_weights': {'rising': 0.25, 'falling': 0.25, 'arc': 0.35, 'valley': 0.15},
+                'interval_weights': {1: 0.48, 2: 0.3, 3: 0.12, 4: 0.06, 5: 0.04},
+                'min_pitch': 58, 'max_pitch': 82
+            })
+        return style
 
 
 class HipHopRules(GenreRules):
@@ -739,7 +905,7 @@ class HipHopRules(GenreRules):
         Returns:
             List of hip-hop subgenres
         """
-        return ['west_coast', 'east_coast', 'trap', 'boom_bap', 'conscious']
+        return ['west_coast', 'east_coast', 'trap', 'boom_bap', 'drill', 'conscious']
 
     def get_beat_characteristics(self, subgenre: Optional[str] = None) -> Dict[str, Any]:
         """Get beat characteristics for hip-hop music.
@@ -771,8 +937,55 @@ class HipHopRules(GenreRules):
                 'syncopation_level': 0.6,
                 'tempo_range': (85, 100)
             })
+        elif subgenre == 'drill':
+            characteristics.update({
+                'swing_factor': 0.5,
+                'syncopation_level': 0.8,
+                'emphasis_patterns': [3],  # strong snare on 3 (half-time feel)
+                'tempo_range': (130, 150)
+            })
 
         return characteristics
+
+    def get_rhythm_patterns_for_subgenre(self, subgenre: Optional[str] = None) -> List[Dict[str, Any]]:
+        base = self.get_rhythm_patterns()
+        if subgenre == 'drill':
+            return [
+                {'name': 'hi_hat_triplets', 'pattern': [0.333]*12},
+                {'name': 'stutter_snare', 'pattern': [0.5, 0.25, 0.25, 0.5, 0.5]},
+            ]
+        if subgenre == 'trap':
+            return [
+                {'name': 'trap', 'pattern': [0.75, 0.25, 0.75, 0.25]},
+                {'name': 'hi_hat_16ths', 'pattern': [0.25]*16},
+            ]
+        if subgenre == 'boom_bap':
+            return [
+                {'name': 'boom_bap', 'pattern': [0.5, 0.5, 0.5, 0.5]},
+            ]
+        return base
+
+    def get_melody_style(self, subgenre: Optional[str] = None) -> Dict[str, Any]:
+        style = super().get_melody_style(subgenre)
+        if subgenre == 'drill':
+            style.update({
+                'contour_weights': {'rising': 0.2, 'falling': 0.4, 'arc': 0.2, 'valley': 0.2},
+                'interval_weights': {1: 0.45, 2: 0.25, 3: 0.2, 4: 0.08, 5: 0.02},
+                'min_pitch': 55, 'max_pitch': 76
+            })
+        elif subgenre == 'boom_bap':
+            style.update({
+                'contour_weights': {'rising': 0.25, 'falling': 0.35, 'arc': 0.25, 'valley': 0.15},
+                'interval_weights': {1: 0.48, 2: 0.28, 3: 0.14, 4: 0.07, 5: 0.03},
+                'min_pitch': 57, 'max_pitch': 79
+            })
+        elif subgenre == 'trap':
+            style.update({
+                'contour_weights': {'rising': 0.3, 'falling': 0.25, 'arc': 0.3, 'valley': 0.15},
+                'interval_weights': {1: 0.5, 2: 0.28, 3: 0.14, 4: 0.06, 5: 0.02},
+                'min_pitch': 58, 'max_pitch': 82
+            })
+        return style
 
 
 class ClassicalRules(GenreRules):
@@ -889,164 +1102,528 @@ class ClassicalRules(GenreRules):
             })
 
         return characteristics
+
 class DnBRules(GenreRules):
-     """Rules for Drum and Bass music.
+    """Rules for Drum and Bass music.
 
-     Drum and Bass (DnB) is characterized by fast tempos (160-180 BPM),
-     intricate breakbeat rhythms, heavy sub-bass, and atmospheric synths.
-     It often uses minor keys with modal interchange and features
-     complex rhythmic layering over simple harmonic structures.
-     """
+    Drum and Bass (DnB) is characterized by fast tempos (160-180 BPM),
+    intricate breakbeat rhythms, heavy sub-bass, and atmospheric synths.
+    It often uses minor keys with modal interchange and features
+    complex rhythmic layering over simple harmonic structures.
+    """
 
-     def get_scales(self) -> List[str]:
-         """Get the scales typically used in DnB music.
+    def get_scales(self) -> List[str]:
+        """Get the scales typically used in DnB music.
 
-         DnB uses minor scales and modal scales for atmospheric soundscapes.
+        DnB uses minor scales and modal scales for atmospheric soundscapes.
 
-         Returns:
-             List of scale strings
-         """
-         return ['C minor', 'A minor', 'F minor', 'D minor', 'G minor', 'Eb minor',
-                 'Bb minor', 'Ab minor', 'C dorian', 'D phrygian', 'Eb lydian', 'F mixolydian']
+        Returns:
+            List of scale strings
+        """
+        return ['C minor', 'A minor', 'F minor', 'D minor', 'G minor', 'Eb minor',
+                'Bb minor', 'Ab minor', 'C dorian', 'D phrygian', 'Eb lydian', 'F mixolydian']
 
-     def get_chord_progressions(self) -> List[List[str]]:
-         """Get common chord progressions for DnB music.
+    def get_chord_progressions(self) -> List[List[str]]:
+        """Get common chord progressions for DnB music.
 
-         DnB uses simple, repetitive progressions that create groove
-         and allow focus on rhythm and bass.
+        DnB uses simple, repetitive progressions that create groove
+        and allow focus on rhythm and bass.
 
-         Returns:
-             List of DnB chord progressions
-         """
-         return [
-             ['i', 'iv', 'v'],              # Simple minor progression
-             ['i', 'bVII', 'bVI', 'bVII'],  # Atmospheric progression
-             ['vi', 'IV', 'i', 'V'],        # Modal interchange
-             ['i', 'bVI', 'bIII', 'bVII'],  # Liquid DnB style
-             ['I', 'V', 'vi', 'IV'],         # Major key for jump-up
-             ['i', 'iv', 'i', 'iv'] # Repetitive groove
-         ]
+        Returns:
+            List of DnB chord progressions
+        """
+        return [
+            ['i', 'iv', 'v'],              # Simple minor progression
+            ['i', 'bVII', 'bVI', 'bVII'],  # Atmospheric progression
+            ['vi', 'IV', 'i', 'V'],        # Modal interchange
+            ['i', 'bVI', 'bIII', 'bVII'],  # Liquid DnB style
+            ['I', 'V', 'vi', 'IV'],         # Major key for jump-up
+            ['i', 'iv', 'i', 'iv'] # Repetitive groove
+        ]
 
-     def get_rhythm_patterns(self) -> List[Dict[str, Any]]:
-         """Get typical rhythm patterns for DnB music.
+    def get_rhythm_patterns(self) -> List[Dict[str, Any]]:
+        """Get typical rhythm patterns for DnB music.
 
-         DnB features intricate breakbeat patterns and fast snare rolls.
+        DnB features intricate breakbeat patterns and fast snare rolls.
 
-         Returns:
-             List of DnB rhythm patterns
-         """
-         return [
-             {'name': 'amen_break', 'pattern': [0.5, 0.25, 0.25, 0.5, 0.25, 0.25, 0.25, 0.25]},
-             {'name': 'double_kick', 'pattern': [0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25]},
-             {'name': 'syncopated_snare', 'pattern': [0.5, 0.5, 0.25, 0.25, 0.5]},
-             {'name': 'jungle_pattern', 'pattern': [0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25]}
-         ]
+        Returns:
+            List of DnB rhythm patterns
+        """
+        return [
+            {'name': 'amen_break', 'pattern': [0.5, 0.25, 0.25, 0.5, 0.25, 0.25, 0.25, 0.25]},
+            {'name': 'double_kick', 'pattern': [0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25]},
+            {'name': 'syncopated_snare', 'pattern': [0.5, 0.5, 0.25, 0.25, 0.5]},
+            {'name': 'jungle_pattern', 'pattern': [0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25, 0.25]}
+        ]
 
-     def get_typical_structure(self) -> List[str]:
-         """Get the typical song structure for DnB music.
+    def get_rhythm_patterns_for_subgenre(self, subgenre: Optional[str] = None) -> List[Dict[str, Any]]:
+        base = self.get_rhythm_patterns()
+        if subgenre == 'jungle':
+            return [
+                {'name': 'amen_break', 'pattern': [0.5, 0.25, 0.25, 0.5, 0.25, 0.25, 0.25, 0.25]},
+                {'name': 'jungle_pattern', 'pattern': [0.25]*8},
+            ]
+        if subgenre == 'liquid':
+            return [
+                {'name': 'syncopated_snare', 'pattern': [0.5, 0.5, 0.25, 0.25, 0.5]},
+                {'name': 'rolling_16ths', 'pattern': [0.25]*16},
+            ]
+        if subgenre == 'techstep':
+            return [
+                {'name': 'double_kick', 'pattern': [0.25]*8},
+            ]
+        return base
 
-         DnB follows a build-drop structure with breakdown sections.
+    def get_typical_structure(self) -> List[str]:
+        """Get the typical song structure for DnB music.
 
-         Returns:
-             List representing typical DnB song structure
-         """
-         return ['intro', 'buildup', 'drop', 'breakdown', 'drop', 'atmospheric_section', 'outro']
+        DnB follows a build-drop structure with breakdown sections.
 
-     def get_instrumentation(self) -> List[str]:
-         """Get typical instruments used in DnB music.
+        Returns:
+            List representing typical DnB song structure
+        """
+        return ['intro', 'buildup', 'drop', 'breakdown', 'drop', 'atmospheric_section', 'outro']
 
-         DnB uses electronic production tools and samples.
+    def get_instrumentation(self) -> List[str]:
+        """Get typical instruments used in DnB music.
 
-         Returns:
-             List of typical DnB instruments
-         """
-         return ['synthesizer', 'drum_machine', 'sampler', 'sub_bass', 'effects_processor']
+        DnB uses electronic production tools and samples.
 
-     def get_subgenres(self) -> List[str]:
-         """Get subgenres for DnB music.
+        Returns:
+            List of typical DnB instruments
+        """
+        return ['synthesizer', 'drum_machine', 'sampler', 'sub_bass', 'effects_processor']
 
-         Returns:
-             List of DnB subgenres
-         """
-         return ['jungle', 'liquid', 'techstep', 'jump-up', 'neurofunk']
+    def get_subgenres(self) -> List[str]:
+        """Get subgenres for DnB music.
 
-     def get_beat_characteristics(self, subgenre: Optional[str] = None) -> Dict[str, Any]:
-         """Get beat characteristics for DnB music.
+        Returns:
+            List of DnB subgenres
+        """
+        return ['jungle', 'liquid', 'techstep', 'jump-up', 'neurofunk']
 
-         Args:
-             subgenre: Optional subgenre to get characteristics for
+    def get_beat_characteristics(self, subgenre: Optional[str] = None) -> Dict[str, Any]:
+        """Get beat characteristics for DnB music.
 
-         Returns:
-             Dictionary containing beat characteristics
-         """
-         # Base characteristics for DnB
-         characteristics = {
-             'swing_factor': 0.5,
-             'syncopation_level': 0.8,
-             'emphasis_patterns': [1, 2, 3, 4],  # Full beat emphasis with syncopation
-             'tempo_range': (160, 180)
-         }
+        Args:
+            subgenre: Optional subgenre to get characteristics for
 
-         # Adjust based on subgenre
-         if subgenre == 'liquid':
-             characteristics.update({
-                 'swing_factor': 0.52,
-                 'syncopation_level': 0.6,
-                 'tempo_range': (170, 175)  # Slightly calmer
-             })
-         elif subgenre == 'jungle':
-             characteristics.update({
-                 'swing_factor': 0.48,
-                 'syncopation_level': 0.9,
-                 'tempo_range': (155, 165)
-             })
-         elif subgenre == 'techstep':
-             characteristics.update({
-                 'swing_factor': 0.5,
-                 'syncopation_level': 0.7,
-                 'tempo_range': (160, 180)
-             })
+        Returns:
+            Dictionary containing beat characteristics
+        """
+        # Base characteristics for DnB
+        # For DnB, we want to emphasize the snare backbeat (beats 2 and 4) more than other beats
+        characteristics = {
+            'swing_factor': 0.5,
+            'syncopation_level': 0.8,
+            'emphasis_patterns': [2, 4],  # Strong snare backbeat emphasis (beats 2 and 4)
+            'tempo_range': (160, 180)
+        }
 
-         return characteristics
+        # Adjust based on subgenre
+        if subgenre == 'liquid':
+            characteristics.update({
+                'swing_factor': 0.52,
+                'syncopation_level': 0.6,
+                'tempo_range': (170, 175)  # Slightly calmer
+            })
+        elif subgenre == 'jungle':
+            characteristics.update({
+                'swing_factor': 0.48,
+                'syncopation_level': 0.9,
+                'tempo_range': (155, 165)
+            })
+        elif subgenre == 'techstep':
+            characteristics.update({
+                'swing_factor': 0.5,
+                'syncopation_level': 0.7,
+                'tempo_range': (160, 180)
+            })
 
-     def get_bass_patterns(self) -> List[Dict[str, Any]]:
-         """Get typical bass patterns for DnB music.
+        return characteristics
 
-         DnB features prominent sub-bass patterns that drive the groove.
+    def get_drum_patterns(self, subgenre: Optional[str] = None) -> List[Dict[str, Any]]:
+        """
+        Drum kit step templates for DnB (per-voice).
+        """
+        base = [
+            {
+                'name': 'dnb_basic_A',
+                'steps_per_bar': 16,
+                'voices': {
+                    'kick': [0, 6, 10],
+                    'snare': [4, 12],
+                    'ch': [0, 2, 4, 6, 8, 10, 12, 14],  # Place closed hats on even 16ths for offbeat feel
+                    'oh': [2, 6, 10, 14],
+                    'ghost_snare': [3, 5, 11, 13]
+                },
+                'weight': 1.0
+            },
+            {
+                'name': 'dnb_basic_B',
+                'steps_per_bar': 16,
+                'voices': {
+                    'kick': [0, 5, 8, 14],
+                    'snare': [4, 12],
+                    'ch': [0, 2, 4, 6, 8, 10, 12, 14],  # Place closed hats on even 16ths for offbeat feel
+                    'oh': [2, 10],
+                    'ghost_snare': [7, 15]
+                },
+                'weight': 1.0
+            }
+        ]
+        if subgenre == 'jungle':
+            return [
+                {
+                    'name': 'jungle_amen_A',
+                    'steps_per_bar': 16,
+                    'voices': {
+                        'kick': [0, 8],
+                        'snare': [4, 12],
+                        'ch': [0, 2, 4, 6, 8, 10, 12, 14],  # Place closed hats on even 16ths for offbeat feel
+                        'oh': [2, 6, 10, 14],
+                        'ghost_snare': [3, 5, 11, 13]
+                    },
+                    'weight': 1.0
+                }
+            ]
+        elif subgenre == 'liquid':
+            return [
+                {
+                    'name': 'liquid_rolling',
+                    'steps_per_bar': 16,
+                    'voices': {
+                        'kick': [0, 10],
+                        'snare': [4, 12],
+                        'ch': [0, 2, 4, 6, 8, 10, 12, 14],  # Place closed hats on even 16ths for offbeat feel
+                        'oh': [6, 14],
+                        'ghost_snare': [3, 11]
+                    },
+                    'weight': 1.0
+                }
+            ]
+        return base
 
-         Returns:
-             List of DnB bass patterns
-         """
-         return [
-             {'name': 'wobble_bass', 'pattern': [1.0, 0.5, 0.5, 0.25, 0.25, 0.5]},
-             {'name': 'sub_bass', 'pattern': [1.0, 1.0, 0.5, 0.5]},
-             {'name': 'rolling_bass', 'pattern': [0.25, 0.25, 0.25, 0.25, 0.5, 0.5]}
-         ]
+    def get_bass_patterns(self) -> List[Dict[str, Any]]:
+        """Get typical bass patterns for DnB music.
 
-     def get_melody_patterns(self) -> List[Dict[str, Any]]:
-         """Get typical melody patterns for DnB music.
+        DnB features prominent sub-bass patterns that drive the groove.
 
-         DnB melodies are often atmospheric and syncopated.
+        Returns:
+            List of DnB bass patterns
+        """
+        return [
+            {'name': 'wobble_bass', 'pattern': [1.0, 0.5, 0.5, 0.25, 0.25, 0.5]},
+            {'name': 'sub_bass', 'pattern': [1.0, 1.0, 0.5, 0.5]},
+            {'name': 'rolling_bass', 'pattern': [0.25, 0.25, 0.25, 0.25, 0.5, 0.5]}
+        ]
 
-         Returns:
-             List of DnB melody patterns
-         """
-         return [
-             {'name': 'atmospheric_pad', 'pattern': [1.0, 0.5, 0.5, 0.25, 0.75]},
-             {'name': 'syncopated_lead', 'pattern': [0.25, 0.25, 0.5, 0.5, 0.5]},
-             {'name': 'rolling_melody', 'pattern': [0.5, 0.25, 0.25, 0.5, 0.5]}
-         ]
+    def get_melody_patterns(self) -> List[Dict[str, Any]]:
+        """Get typical melody patterns for DnB music.
 
-     def get_harmony_patterns(self) -> List[Dict[str, Any]]:
-         """Get typical harmony patterns for DnB music.
+        DnB melodies are often atmospheric and syncopated.
 
-         DnB harmonies are often simple and repetitive.
+        Returns:
+            List of DnB melody patterns
+        """
+        return [
+            {'name': 'atmospheric_pad', 'pattern': [1.0, 0.5, 0.5, 0.25, 0.75]},
+            {'name': 'syncopated_lead', 'pattern': [0.25, 0.25, 0.5, 0.5, 0.5]},
+            {'name': 'rolling_melody', 'pattern': [0.5, 0.25, 0.25, 0.5, 0.5]}
+        ]
 
-         Returns:
-             List of DnB harmony patterns
-         """
-         return [
-             {'name': 'modal_chords', 'pattern': [1.0, 1.0, 0.5, 0.5]},
-             {'name': 'atmospheric_pad', 'pattern': [2.0, 1.0, 1.0]},
-             {'name': 'rhythmic_harmony', 'pattern': [0.5, 0.5, 0.5, 0.5, 1.0]}
-         ]
+    def get_harmony_patterns(self) -> List[Dict[str, Any]]:
+        """Get typical harmony patterns for DnB music.
+
+        DnB harmonies are often simple and repetitive.
+
+        Returns:
+            List of DnB harmony patterns
+        """
+        return [
+            {'name': 'modal_chords', 'pattern': [1.0, 1.0, 0.5, 0.5]},
+            {'name': 'atmospheric_pad', 'pattern': [2.0, 1.0, 1.0]},
+            {'name': 'rhythmic_harmony', 'pattern': [0.5, 0.5, 0.5, 0.5, 1.0]}
+        ]
+
+    def get_melody_style(self, subgenre: Optional[str] = None) -> Dict[str, Any]:
+        style = super().get_melody_style(subgenre)
+        if subgenre == 'liquid':
+            style.update({
+                'contour_weights': {'rising': 0.35, 'falling': 0.15, 'arc': 0.4, 'valley': 0.1},
+                'interval_weights': {1: 0.5, 2: 0.28, 3: 0.15, 4: 0.05, 5: 0.02},
+                'min_pitch': 62, 'max_pitch': 86
+            })
+        elif subgenre == 'jungle':
+            style.update({
+                'contour_weights': {'rising': 0.3, 'falling': 0.3, 'arc': 0.25, 'valley': 0.15},
+                'interval_weights': {1: 0.42, 2: 0.26, 3: 0.2, 4: 0.09, 5: 0.03},
+                'min_pitch': 60, 'max_pitch': 84
+            })
+        return style
+class AmbientRules(GenreRules):
+    """Rules for ambient music.
+
+    Ambient music is characterized by atmospheric soundscapes, sustained tones,
+    minimal rhythms, and focus on texture and mood rather than traditional structure.
+    It uses modal scales, simple harmonies, and prioritizes atmospheric elements
+    like pads and drones over percussive elements. Tempos are slow, and complexity
+    adapts to be simpler at lower tempos for deeper immersion.
+    """
+    
+    def get_scales(self) -> List[str]:
+        """Get the scales typically used in ambient music.
+
+        Ambient music favors modal and minor scales for their atmospheric qualities.
+        
+        Returns:
+            List of modal and minor scale strings
+        """
+        return ['C dorian', 'D dorian', 'E phrygian', 'F lydian', 'G mixolydian',
+                'A aeolian', 'B locrian', 'C minor', 'D minor', 'E minor',
+                'F minor', 'G minor', 'A minor', 'Bb minor', 'Eb minor', 'Ab minor']
+    
+    def get_chord_progressions(self) -> List[List[str]]:
+        """Get common chord progressions for ambient music.
+
+        Ambient music uses simple, sustained progressions that evolve slowly,
+        often with modal interchange for color.
+
+        Returns:
+            List of ambient chord progressions
+        """
+        return [
+            ['i', 'VI', 'III', 'VII'],  # Ambient staple progression
+            ['i', 'iv', 'VI', 'iii'],   # Minor modal progression
+            ['I', 'v', 'vi', 'IV'],     # Major key ethereal
+            ['i', 'bVII', 'bVI', 'bVII'], # Dark ambient variant
+            ['i', 'VI', 'iv', 'v'],     # Slow evolving harmony
+            ['I', 'IV', 'vi', 'ii']     # Gentle suspension
+        ]
+    
+    def get_rhythm_patterns(self) -> List[Dict[str, Any]]:
+        """Get typical rhythm patterns for ambient music.
+
+        Ambient rhythms are sustained and sparse, with long notes and significant rests
+        to create space. Patterns emphasize duration over subdivision.
+
+        Returns:
+            List of ambient rhythm patterns (sustained, sparse)
+        """
+        return [
+            {'name': 'sustained_whole', 'pattern': [4.0]},  # Whole note holds
+            {'name': 'half_note_pulse', 'pattern': [2.0, 2.0]},  # Gentle pulsing
+            {'name': 'quarter_with_rest', 'pattern': [1.0, 1.0, 2.0]},  # Sparse quarter notes
+            {'name': 'dotted_half', 'pattern': [3.0, 1.0]},  # Dotted rhythms for flow
+            {'name': 'long_sustain', 'pattern': [2.0, 1.0, 1.0]}  # Extended sustains
+        ]
+    
+    def get_typical_structure(self) -> List[str]:
+        """Get the typical song structure for ambient music.
+
+        Ambient pieces often lack traditional verses/choruses, focusing on gradual
+        evolution and immersion.
+
+        Returns:
+            List representing typical ambient structure
+        """
+        return ['intro_fade_in', 'sustain_layering', 'development_atmosphere', 'climax_subtle', 'fade_out']
+    
+    def get_instrumentation(self) -> List[str]:
+        """Get typical instruments used in ambient music.
+
+        Ambient prioritizes sustain-focused instruments like pads and drones,
+        with minimal percussion.
+
+        Returns:
+            List of typical ambient instruments
+        """
+        return ['pads', 'drones', 'ambient_synth', 'soft_piano', 'reverb_guitar', 
+                'field_recordings', 'minimal_drums', 'choir_pads', 'string_ensemble']
+    
+    def get_subgenres(self) -> List[str]:
+        """Get subgenres for ambient music.
+        
+        Returns:
+            List of ambient subgenres
+        """
+        return ['dark_ambient', 'chill_ambient', 'nature_ambient', 'space_ambient', 'drone_ambient']
+    
+    def get_beat_characteristics(self, subgenre: Optional[str] = None) -> Dict[str, Any]:
+        """Get beat characteristics for ambient music.
+
+        Ambient features slow tempos with minimal swing and syncopation.
+        Complexity is tempo-adaptive: slower tempos reduce rhythmic density
+        for deeper immersion, while slightly higher tempos allow subtle variations.
+
+        Args:
+            subgenre: Optional subgenre to get characteristics for
+
+        Returns:
+            Dictionary containing beat characteristics
+        """
+        # Base characteristics for ambient (low tempo, minimal rhythm)
+        characteristics = {
+            'swing_factor': 0.5,  # Straight timing
+            'syncopation_level': 0.1,  # Minimal syncopation
+            'emphasis_patterns': [1],  # Soft downbeat emphasis
+            'tempo_range': (50, 90)  # Slow to meditative tempos
+        }
+        
+        # Tempo-adaptive complexity: lower tempo = simpler patterns
+        # This can be used by the dynamic rhythm adaptation system
+        
+        # Adjust based on subgenre
+        if subgenre == 'dark_ambient':
+            characteristics.update({
+                'swing_factor': 0.5,
+                'syncopation_level': 0.05,
+                'tempo_range': (40, 70)  # Slower, more ominous
+            })
+        elif subgenre == 'chill_ambient':
+            characteristics.update({
+                'swing_factor': 0.52,
+                'syncopation_level': 0.15,
+                'tempo_range': (60, 85)  # Relaxed, slightly more variation
+            })
+        elif subgenre == 'nature_ambient':
+            characteristics.update({
+                'swing_factor': 0.5,
+                'syncopation_level': 0.1,
+                'tempo_range': (55, 80)  # Organic, flowing
+            })
+        elif subgenre == 'space_ambient':
+            characteristics.update({
+                'swing_factor': 0.5,
+                'syncopation_level': 0.08,
+                'tempo_range': (45, 75)  # Vast, drifting
+            })
+        
+        return characteristics
+    
+    def get_rhythm_patterns_for_subgenre(self, subgenre: Optional[str] = None) -> List[Dict[str, Any]]:
+        """Get rhythm patterns specialized for a subgenre.
+        
+        Returns ambient-specific variations.
+        """
+        base = self.get_rhythm_patterns()
+        if subgenre == 'dark_ambient':
+            return [
+                {'name': 'ominous_sustain', 'pattern': [4.0]},
+                {'name': 'sparse_pulse', 'pattern': [3.0, 1.0]}
+            ]
+        elif subgenre == 'chill_ambient':
+            return [
+                {'name': 'gentle_wave', 'pattern': [2.0, 1.0, 1.0]},
+                {'name': 'breathe_rhythm', 'pattern': [1.5, 0.5, 2.0]}
+            ]
+        elif subgenre == 'drone_ambient':
+            return [
+                {'name': 'drone_hold', 'pattern': [8.0]},  # Very long sustains
+                {'name': 'subtle_shift', 'pattern': [4.0, 4.0]}
+            ]
+        return base
+    
+    def get_drum_patterns(self, subgenre: Optional[str] = None) -> List[Dict[str, Any]]:
+        """Get sparse drum patterns for ambient (minimal percussion).
+        
+        Drums are de-emphasized; focus on soft, distant hits.
+        """
+        base = [
+            {
+                'name': 'ambient_minimal_A',
+                'steps_per_bar': 4,  # Coarse grid for slow tempos
+                'voices': {
+                    'kick': [0],  # Soft kick on downbeat only
+                    'ch': [2],    # Subtle hi-hat on offbeat
+                },
+                'weight': 0.3  # Low weight to keep sparse
+            },
+            {
+                'name': 'ambient_pulse_B',
+                'steps_per_bar': 4,
+                'voices': {
+                    'kick': [0, 2],  # Gentle pulse
+                    'rim': [1, 3],   # Soft rim for texture
+                },
+                'weight': 0.2
+            }
+        ]
+        if subgenre == 'dark_ambient':
+            return [
+                {
+                    'name': 'dark_distant',
+                    'steps_per_bar': 4,
+                    'voices': {
+                        'kick': [0],  # Rare, deep kick
+                    },
+                    'weight': 0.1
+                }
+            ]
+        elif subgenre == 'chill_ambient':
+            return [
+                {
+                    'name': 'chill_soft',
+                    'steps_per_bar': 8,
+                    'voices': {
+                        'ch': [1, 3, 5, 7],  # Light hats
+                        'ride': [0, 4],      # Occasional ride
+                    },
+                    'weight': 0.4
+                }
+            ]
+        return base
+    
+    def get_melody_style(self, subgenre: Optional[str] = None) -> Dict[str, Any]:
+        """Get melody style for ambient: slow, wide, atmospheric contours.
+        
+        Emphasizes sustains and space.
+        """
+        style = super().get_melody_style(subgenre)
+        # Base ambient: favoring arcs and valleys for atmospheric flow
+        style.update({
+            'contour_weights': {'rising': 0.2, 'falling': 0.2, 'arc': 0.4, 'valley': 0.2},
+            'interval_weights': {1: 0.2, 2: 0.25, 3: 0.2, 4: 0.15, 5: 0.1, 6: 0.05, 7: 0.05},  # Wider intervals
+            'min_pitch': 48,  # Low register for depth
+            'max_pitch': 84   # Up to mid for airy
+        })
+        
+        if subgenre == 'space_ambient':
+            style.update({
+                'contour_weights': {'rising': 0.15, 'falling': 0.15, 'arc': 0.5, 'valley': 0.2},
+                'interval_weights': {3: 0.25, 4: 0.2, 5: 0.15, 6: 0.1, 7: 0.1},  # Even wider for vastness
+                'min_pitch': 45, 'max_pitch': 88  # Broader range
+            })
+        elif subgenre == 'dark_ambient':
+            style.update({
+                'contour_weights': {'rising': 0.1, 'falling': 0.4, 'arc': 0.2, 'valley': 0.3},
+                'interval_weights': {2: 0.3, 3: 0.25, 4: 0.2, 5: 0.15},  # Descending focus
+                'min_pitch': 36, 'max_pitch': 72  # Lower, ominous
+            })
+        elif subgenre == 'chill_ambient':
+            style.update({
+                'contour_weights': {'rising': 0.3, 'falling': 0.2, 'arc': 0.3, 'valley': 0.2},
+                'interval_weights': {1: 0.35, 2: 0.3, 3: 0.2, 4: 0.1},  # Gentler steps
+                'min_pitch': 52, 'max_pitch': 80  # Mid-range calm
+            })
+        
+        return style
+    
+    def get_rules(self) -> Dict[str, Any]:
+        """Override to include GenreStemProfile-like priorities for atmospheric stems.
+        
+        Prioritizes pads over drums for ambient.
+        Integrates with AtmosphereGenerator and stem system.
+        """
+        rules = super().get_rules()
+        # Add stem priorities (GenreStemProfile equivalent)
+        rules['stem_priorities'] = {
+            'pads': 0.4,       # High priority for atmospheric pads
+            'drones': 0.3,     # Sustained drones
+            'synths': 0.2,     # Ambient synths
+            'drums': 0.05,     # Minimal drums
+            'bass': 0.05       # Subtle bass
+        }
+        # Note: Rhythm patterns are sparse for AmbientRhythmEngine
+        # Beat characteristics enable tempo-adaptive complexity via dynamic system
+        return rules

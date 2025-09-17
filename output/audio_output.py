@@ -56,26 +56,66 @@ class AudioOutput:
             print(f"Error saving temporary MIDI for audio rendering: {e}")
             return False
 
-        # Determine the total duration of the song for rendering
-        # This is a rough estimate. A more accurate duration would come from analyzing the MIDI file.
-        total_duration_beats = 0
-        for section_type, patterns in song_skeleton.sections.items():
-            for pattern in patterns:
-                for note in pattern.notes:
-                    total_duration_beats = max(total_duration_beats, note.start_time + note.duration)
-                for chord in pattern.chords:
-                    for note in chord.notes:
-                        total_duration_beats = max(total_duration_beats, note.start_time + note.duration)
-        
-        # Convert beats to seconds (assuming 120 BPM for a rough estimate if tempo not used)
-        # A more accurate conversion would use the song_skeleton.tempo
-        tempo_bpm = song_skeleton.tempo if song_skeleton.tempo > 0 else 120
-        duration_seconds = (total_duration_beats / tempo_bpm) * 60
-        # Add a little padding
-        duration_seconds += 2.0
+        # Build MIDI notes (in SECONDS) directly from SongSkeleton sections (ordered)
+        # And compute total duration from target section lengths
+        def _get_section_target_length_beats(section_type) -> float:
+            mapping = {
+                'intro': 16.0,         # 4 bars
+                'verse': 32.0,         # 8 bars
+                'pre_chorus': 16.0,    # 4 bars
+                'chorus': 32.0,        # 8 bars
+                'post_chorus': 16.0,   # 4 bars
+                'bridge': 24.0,        # 6 bars
+                'solo': 32.0,          # 8 bars
+                'fill': 4.0,           # 1 bar
+                'outro': 16.0          # 4 bars
+            }
+            key = getattr(section_type, "value", str(section_type))
+            return mapping.get(key, 32.0)
 
-        # Now, use the PluginHost to render this temporary MIDI to audio
-        success = self.plugin_host.render_midi_to_audio(midi_temp_path, output_audio_path, duration_seconds)
+        tempo_bpm = song_skeleton.tempo if song_skeleton.tempo > 0 else 120
+        beat_to_sec = 60.0 / float(tempo_bpm)
+
+        midi_notes: list[dict] = []
+        current_time_beats = 0.0
+        total_duration_beats = 0.0
+
+        for section_type, patterns in song_skeleton.sections:
+            section_len_beats = _get_section_target_length_beats(section_type)
+            # Notes (local start_time in beats -> absolute seconds)
+            for pattern in patterns:
+                for note in getattr(pattern, "notes", []) or []:
+                    start_sec = (current_time_beats + float(note.start_time)) * beat_to_sec
+                    dur_sec = float(note.duration) * beat_to_sec
+                    midi_notes.append({
+                        "note": int(note.pitch),
+                        "velocity": int(note.velocity),
+                        "start_time": float(start_sec),
+                        "duration": float(dur_sec)
+                    })
+                # Chords: flatten into individual notes
+                for chord in getattr(pattern, "chords", []) or []:
+                    for n in getattr(chord, "notes", []) or []:
+                        start_sec = (current_time_beats + float(n.start_time)) * beat_to_sec
+                        dur_sec = float(n.duration) * beat_to_sec
+                        midi_notes.append({
+                            "note": int(n.pitch),
+                            "velocity": int(n.velocity),
+                            "start_time": float(start_sec),
+                            "duration": float(dur_sec)
+                        })
+            total_duration_beats += section_len_beats
+            current_time_beats += section_len_beats
+
+        duration_seconds = total_duration_beats * beat_to_sec + 2.0  # small tail padding
+
+        # Render via PluginHost (expects midi_notes in seconds)
+        success = self.plugin_host.render_midi_to_audio(
+            midi_notes=midi_notes,
+            output_audio_path=output_audio_path,
+            duration_seconds=duration_seconds,
+            sample_rate=44100
+        )
 
         # Clean up temporary MIDI file
         if os.path.exists(midi_temp_path):

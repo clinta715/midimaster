@@ -1,0 +1,3035 @@
+{
+  "files": {
+    "reference_midis/midi5\\MS_AJ&D3_01_Deep Water_Fminor_164bpm_Midi File.mid": {
+      "path": "reference_midis/midi5\\MS_AJ&D3_01_Deep Water_Fminor_164bpm_Midi File.mid",
+      "ticks_per_beat": 15360,
+      "time_sig": [
+        4,
+        4
+      ],
+      "tempo_bpm_avg": 164.00029520053135,
+      "duration_sec": 234.14592,
+      "bars": 8,
+      "counts_by_class": {
+        "kick": 0,
+        "snare": 0,
+        "chh": 0,
+        "ohh": 0,
+        "ride": 0,
+        "crash": 0,
+        "tom": 0,
+        "perc": 0
+      },
+      "kick_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "snare_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "chh_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "ohh_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "vel_stats_by_class": {
+        "kick": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "snare": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "chh": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "ohh": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "ride": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "crash": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "tom": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "perc": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        }
+      },
+      "vel_pos16_avg": {
+        "kick": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "snare": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "chh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "microtiming_ms_by_class": {
+        "kick": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "snare": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "chh": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "ohh": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "ride": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "crash": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "tom": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "perc": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        }
+      },
+      "snare_backbeat_regular": 0.0,
+      "snare_ghost_rate": 0.0,
+      "snare_ghost_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "hat_offbeat_rate": 0.0,
+      "repetitiveness": {
+        "kick": 1.0,
+        "snare": 1.0,
+        "chh": 1.0
+      },
+      "fill_bars": []
+    },
+    "reference_midis/midi5\\MS_AJ&D3_01_Deep Water_Sample_Cminor_60bpm_Midi File.mid": {
+      "path": "reference_midis/midi5\\MS_AJ&D3_01_Deep Water_Sample_Cminor_60bpm_Midi File.mid",
+      "ticks_per_beat": 15360,
+      "time_sig": [
+        4,
+        4
+      ],
+      "tempo_bpm_avg": 60.0,
+      "duration_sec": 32.0,
+      "bars": 8,
+      "counts_by_class": {
+        "kick": 0,
+        "snare": 0,
+        "chh": 0,
+        "ohh": 0,
+        "ride": 0,
+        "crash": 0,
+        "tom": 0,
+        "perc": 0
+      },
+      "kick_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "snare_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "chh_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "ohh_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "vel_stats_by_class": {
+        "kick": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "snare": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "chh": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "ohh": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "ride": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "crash": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "tom": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "perc": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        }
+      },
+      "vel_pos16_avg": {
+        "kick": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "snare": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "chh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "microtiming_ms_by_class": {
+        "kick": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "snare": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "chh": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "ohh": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "ride": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "crash": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "tom": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "perc": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        }
+      },
+      "snare_backbeat_regular": 0.0,
+      "snare_ghost_rate": 0.0,
+      "snare_ghost_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "hat_offbeat_rate": 0.0,
+      "repetitiveness": {
+        "kick": 1.0,
+        "snare": 1.0,
+        "chh": 1.0
+      },
+      "fill_bars": []
+    },
+    "reference_midis/midi5\\MS_AJ&D3_02_Liminal_Bminor_164bpm_Midi File.mid": {
+      "path": "reference_midis/midi5\\MS_AJ&D3_02_Liminal_Bminor_164bpm_Midi File.mid",
+      "ticks_per_beat": 15360,
+      "time_sig": [
+        4,
+        4
+      ],
+      "tempo_bpm_avg": 164.00029520053135,
+      "duration_sec": 259.02392399999997,
+      "bars": 8,
+      "counts_by_class": {
+        "kick": 0,
+        "snare": 0,
+        "chh": 0,
+        "ohh": 0,
+        "ride": 0,
+        "crash": 0,
+        "tom": 0,
+        "perc": 0
+      },
+      "kick_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "snare_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "chh_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "ohh_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "vel_stats_by_class": {
+        "kick": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "snare": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "chh": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "ohh": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "ride": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "crash": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "tom": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "perc": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        }
+      },
+      "vel_pos16_avg": {
+        "kick": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "snare": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "chh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "microtiming_ms_by_class": {
+        "kick": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "snare": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "chh": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "ohh": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "ride": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "crash": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "tom": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "perc": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        }
+      },
+      "snare_backbeat_regular": 0.0,
+      "snare_ghost_rate": 0.0,
+      "snare_ghost_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "hat_offbeat_rate": 0.0,
+      "repetitiveness": {
+        "kick": 1.0,
+        "snare": 1.0,
+        "chh": 1.0
+      },
+      "fill_bars": []
+    },
+    "reference_midis/midi5\\MS_AJ&D3_02_Liminal_Sample_F#minor_60bpm_Midi File.mid": {
+      "path": "reference_midis/midi5\\MS_AJ&D3_02_Liminal_Sample_F#minor_60bpm_Midi File.mid",
+      "ticks_per_beat": 15360,
+      "time_sig": [
+        4,
+        4
+      ],
+      "tempo_bpm_avg": 60.0,
+      "duration_sec": 32.0,
+      "bars": 8,
+      "counts_by_class": {
+        "kick": 0,
+        "snare": 0,
+        "chh": 3,
+        "ohh": 0,
+        "ride": 5,
+        "crash": 1,
+        "tom": 4,
+        "perc": 0
+      },
+      "kick_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "snare_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "chh_pos16_hist": [
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "ohh_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "vel_stats_by_class": {
+        "kick": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "snare": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "chh": {
+          "mean": 82.0,
+          "median": 76.0,
+          "std": 12.96148139681572,
+          "min": 70.0,
+          "max": 100.0,
+          "count": 3.0
+        },
+        "ohh": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "ride": {
+          "mean": 77.0,
+          "median": 67.0,
+          "std": 19.266551326067674,
+          "min": 54.0,
+          "max": 100.0,
+          "count": 5.0
+        },
+        "crash": {
+          "mean": 100.0,
+          "median": 100.0,
+          "std": 0.0,
+          "min": 100.0,
+          "max": 100.0,
+          "count": 1.0
+        },
+        "tom": {
+          "mean": 83.5,
+          "median": 84.5,
+          "std": 16.560495161679196,
+          "min": 65.0,
+          "max": 100.0,
+          "count": 4.0
+        },
+        "perc": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        }
+      },
+      "vel_pos16_avg": {
+        "kick": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "snare": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "chh": [
+          82.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "microtiming_ms_by_class": {
+        "kick": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "snare": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "chh": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 3.0
+        },
+        "ohh": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "ride": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 5.0
+        },
+        "crash": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 1.0
+        },
+        "tom": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 4.0
+        },
+        "perc": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        }
+      },
+      "snare_backbeat_regular": 0.0,
+      "snare_ghost_rate": 0.0,
+      "snare_ghost_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "hat_offbeat_rate": 0.0,
+      "repetitiveness": {
+        "kick": 1.0,
+        "snare": 1.0,
+        "chh": 0.75
+      },
+      "fill_bars": [
+        0,
+        4
+      ]
+    },
+    "reference_midis/midi5\\MS_AJ&D3_03_Spectral Reflection_Aminor_164bpm_Midi File.mid": {
+      "path": "reference_midis/midi5\\MS_AJ&D3_03_Spectral Reflection_Aminor_164bpm_Midi File.mid",
+      "ticks_per_beat": 15360,
+      "time_sig": [
+        4,
+        4
+      ],
+      "tempo_bpm_avg": 164.00029520053135,
+      "duration_sec": 238.53615599999998,
+      "bars": 8,
+      "counts_by_class": {
+        "kick": 0,
+        "snare": 0,
+        "chh": 0,
+        "ohh": 0,
+        "ride": 0,
+        "crash": 8,
+        "tom": 275,
+        "perc": 0
+      },
+      "kick_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "snare_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "chh_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "ohh_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "vel_stats_by_class": {
+        "kick": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "snare": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "chh": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "ohh": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "ride": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "crash": {
+          "mean": 115.0,
+          "median": 115.0,
+          "std": 0.0,
+          "min": 115.0,
+          "max": 115.0,
+          "count": 8.0
+        },
+        "tom": {
+          "mean": 90.84,
+          "median": 90.0,
+          "std": 10.39876915793403,
+          "min": 52.0,
+          "max": 113.0,
+          "count": 275.0
+        },
+        "perc": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        }
+      },
+      "vel_pos16_avg": {
+        "kick": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "snare": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "chh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "microtiming_ms_by_class": {
+        "kick": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "snare": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "chh": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "ohh": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "ride": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "crash": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 8.0
+        },
+        "tom": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 275.0
+        },
+        "perc": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        }
+      },
+      "snare_backbeat_regular": 0.0,
+      "snare_ghost_rate": 0.0,
+      "snare_ghost_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "hat_offbeat_rate": 0.0,
+      "repetitiveness": {
+        "kick": 1.0,
+        "snare": 1.0,
+        "chh": 1.0
+      },
+      "fill_bars": []
+    },
+    "reference_midis/midi5\\MS_AJ&D3_03_Spectral Reflection_Sample_Cminor_60bpm_Midi File.mid": {
+      "path": "reference_midis/midi5\\MS_AJ&D3_03_Spectral Reflection_Sample_Cminor_60bpm_Midi File.mid",
+      "ticks_per_beat": 15360,
+      "time_sig": [
+        4,
+        4
+      ],
+      "tempo_bpm_avg": 60.0,
+      "duration_sec": 32.0,
+      "bars": 8,
+      "counts_by_class": {
+        "kick": 0,
+        "snare": 0,
+        "chh": 0,
+        "ohh": 0,
+        "ride": 0,
+        "crash": 0,
+        "tom": 1,
+        "perc": 0
+      },
+      "kick_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "snare_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "chh_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "ohh_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "vel_stats_by_class": {
+        "kick": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "snare": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "chh": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "ohh": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "ride": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "crash": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "tom": {
+          "mean": 100.0,
+          "median": 100.0,
+          "std": 0.0,
+          "min": 100.0,
+          "max": 100.0,
+          "count": 1.0
+        },
+        "perc": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        }
+      },
+      "vel_pos16_avg": {
+        "kick": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "snare": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "chh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "microtiming_ms_by_class": {
+        "kick": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "snare": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "chh": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "ohh": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "ride": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "crash": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "tom": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 1.0
+        },
+        "perc": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        }
+      },
+      "snare_backbeat_regular": 0.0,
+      "snare_ghost_rate": 0.0,
+      "snare_ghost_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "hat_offbeat_rate": 0.0,
+      "repetitiveness": {
+        "kick": 1.0,
+        "snare": 1.0,
+        "chh": 1.0
+      },
+      "fill_bars": [
+        0
+      ]
+    },
+    "reference_midis/midi5\\MS_AJ&D3_04_Etherea_Amajor_164bpm_Midi File.mid": {
+      "path": "reference_midis/midi5\\MS_AJ&D3_04_Etherea_Amajor_164bpm_Midi File.mid",
+      "ticks_per_beat": 15360,
+      "time_sig": [
+        4,
+        4
+      ],
+      "tempo_bpm_avg": 164.00029520053135,
+      "duration_sec": 235.609332,
+      "bars": 8,
+      "counts_by_class": {
+        "kick": 0,
+        "snare": 0,
+        "chh": 0,
+        "ohh": 0,
+        "ride": 39,
+        "crash": 45,
+        "tom": 22,
+        "perc": 0
+      },
+      "kick_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "snare_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "chh_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "ohh_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "vel_stats_by_class": {
+        "kick": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "snare": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "chh": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "ohh": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "ride": {
+          "mean": 106.61538461538461,
+          "median": 123.0,
+          "std": 22.16212452166104,
+          "min": 72.0,
+          "max": 123.0,
+          "count": 39.0
+        },
+        "crash": {
+          "mean": 115.86666666666666,
+          "median": 110.0,
+          "std": 8.11199386368385,
+          "min": 106.0,
+          "max": 125.0,
+          "count": 45.0
+        },
+        "tom": {
+          "mean": 106.0,
+          "median": 106.0,
+          "std": 0.0,
+          "min": 106.0,
+          "max": 106.0,
+          "count": 22.0
+        },
+        "perc": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        }
+      },
+      "vel_pos16_avg": {
+        "kick": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "snare": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "chh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "microtiming_ms_by_class": {
+        "kick": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "snare": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "chh": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "ohh": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "ride": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 39.0
+        },
+        "crash": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 45.0
+        },
+        "tom": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 22.0
+        },
+        "perc": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        }
+      },
+      "snare_backbeat_regular": 0.0,
+      "snare_ghost_rate": 0.0,
+      "snare_ghost_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "hat_offbeat_rate": 0.0,
+      "repetitiveness": {
+        "kick": 1.0,
+        "snare": 1.0,
+        "chh": 1.0
+      },
+      "fill_bars": [
+        0,
+        4,
+        6
+      ]
+    },
+    "reference_midis/midi5\\MS_AJ&D3_04_Etherea_Sample_Bmajor_60bpm_Midi File.mid": {
+      "path": "reference_midis/midi5\\MS_AJ&D3_04_Etherea_Sample_Bmajor_60bpm_Midi File.mid",
+      "ticks_per_beat": 15360,
+      "time_sig": [
+        4,
+        4
+      ],
+      "tempo_bpm_avg": 60.0,
+      "duration_sec": 32.0,
+      "bars": 8,
+      "counts_by_class": {
+        "kick": 0,
+        "snare": 0,
+        "chh": 0,
+        "ohh": 0,
+        "ride": 0,
+        "crash": 2,
+        "tom": 0,
+        "perc": 0
+      },
+      "kick_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "snare_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "chh_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "ohh_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "vel_stats_by_class": {
+        "kick": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "snare": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "chh": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "ohh": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "ride": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "crash": {
+          "mean": 100.0,
+          "median": 100.0,
+          "std": 0.0,
+          "min": 100.0,
+          "max": 100.0,
+          "count": 2.0
+        },
+        "tom": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "perc": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        }
+      },
+      "vel_pos16_avg": {
+        "kick": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "snare": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "chh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "microtiming_ms_by_class": {
+        "kick": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "snare": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "chh": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "ohh": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "ride": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "crash": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 2.0
+        },
+        "tom": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "perc": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        }
+      },
+      "snare_backbeat_regular": 0.0,
+      "snare_ghost_rate": 0.0,
+      "snare_ghost_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "hat_offbeat_rate": 0.0,
+      "repetitiveness": {
+        "kick": 1.0,
+        "snare": 1.0,
+        "chh": 1.0
+      },
+      "fill_bars": [
+        0
+      ]
+    },
+    "reference_midis/midi5\\MS_AJ&D3_05_Aurora Drift_Eminor_164bpm_Midi File.mid": {
+      "path": "reference_midis/midi5\\MS_AJ&D3_05_Aurora Drift_Eminor_164bpm_Midi File.mid",
+      "ticks_per_beat": 15360,
+      "time_sig": [
+        4,
+        4
+      ],
+      "tempo_bpm_avg": 164.00029520053135,
+      "duration_sec": 188.780148,
+      "bars": 8,
+      "counts_by_class": {
+        "kick": 0,
+        "snare": 0,
+        "chh": 0,
+        "ohh": 0,
+        "ride": 0,
+        "crash": 0,
+        "tom": 0,
+        "perc": 0
+      },
+      "kick_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "snare_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "chh_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "ohh_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "vel_stats_by_class": {
+        "kick": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "snare": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "chh": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "ohh": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "ride": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "crash": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "tom": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "perc": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        }
+      },
+      "vel_pos16_avg": {
+        "kick": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "snare": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "chh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "microtiming_ms_by_class": {
+        "kick": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "snare": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "chh": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "ohh": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "ride": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "crash": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "tom": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "perc": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        }
+      },
+      "snare_backbeat_regular": 0.0,
+      "snare_ghost_rate": 0.0,
+      "snare_ghost_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "hat_offbeat_rate": 0.0,
+      "repetitiveness": {
+        "kick": 1.0,
+        "snare": 1.0,
+        "chh": 1.0
+      },
+      "fill_bars": []
+    },
+    "reference_midis/midi5\\MS_AJ&D3_05_Aurora Drift_Sample_D#major_60bpm_Midi File.mid": {
+      "path": "reference_midis/midi5\\MS_AJ&D3_05_Aurora Drift_Sample_D#major_60bpm_Midi File.mid",
+      "ticks_per_beat": 15360,
+      "time_sig": [
+        4,
+        4
+      ],
+      "tempo_bpm_avg": 60.0,
+      "duration_sec": 32.0,
+      "bars": 8,
+      "counts_by_class": {
+        "kick": 0,
+        "snare": 0,
+        "chh": 0,
+        "ohh": 0,
+        "ride": 4,
+        "crash": 4,
+        "tom": 9,
+        "perc": 0
+      },
+      "kick_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "snare_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "chh_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "ohh_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "vel_stats_by_class": {
+        "kick": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "snare": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "chh": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "ohh": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        },
+        "ride": {
+          "mean": 76.0,
+          "median": 76.0,
+          "std": 9.0,
+          "min": 67.0,
+          "max": 85.0,
+          "count": 4.0
+        },
+        "crash": {
+          "mean": 79.0,
+          "median": 79.0,
+          "std": 1.0,
+          "min": 78.0,
+          "max": 80.0,
+          "count": 4.0
+        },
+        "tom": {
+          "mean": 85.11111111111111,
+          "median": 88.0,
+          "std": 12.251480132298251,
+          "min": 52.0,
+          "max": 94.0,
+          "count": 9.0
+        },
+        "perc": {
+          "mean": 0.0,
+          "median": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0,
+          "count": 0.0
+        }
+      },
+      "vel_pos16_avg": {
+        "kick": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "snare": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "chh": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "microtiming_ms_by_class": {
+        "kick": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "snare": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "chh": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "ohh": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        },
+        "ride": {
+          "mean_signed": 64.42057291666666,
+          "mean_abs": 64.42057291666666,
+          "std": 38.834635416666664,
+          "count": 4.0
+        },
+        "crash": {
+          "mean_signed": -8.3984375,
+          "mean_abs": 92.7734375,
+          "std": 92.7734375,
+          "count": 4.0
+        },
+        "tom": {
+          "mean_signed": 24.457465277777775,
+          "mean_abs": 68.42447916666666,
+          "std": 72.33696324540672,
+          "count": 9.0
+        },
+        "perc": {
+          "mean_signed": 0.0,
+          "mean_abs": 0.0,
+          "std": 0.0,
+          "count": 0.0
+        }
+      },
+      "snare_backbeat_regular": 0.0,
+      "snare_ghost_rate": 0.0,
+      "snare_ghost_pos16_hist": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "hat_offbeat_rate": 0.0,
+      "repetitiveness": {
+        "kick": 1.0,
+        "snare": 1.0,
+        "chh": 1.0
+      },
+      "fill_bars": [
+        0,
+        2,
+        4
+      ]
+    }
+  },
+  "aggregate": {
+    "tempo_bpm_avg_median": 112.00014760026568,
+    "duration_sec_median": 110.390074,
+    "bars_median": 8.0,
+    "kick_pos16_hist_median": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "snare_pos16_hist_median": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "chh_pos16_hist_median": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "ohh_pos16_hist_median": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "snare_backbeat_regular_median": 0.0,
+    "snare_ghost_rate_median": 0.0,
+    "hat_offbeat_rate_median": 0.0,
+    "micro_mean_signed_chh_ms": 0.0,
+    "micro_mean_abs_chh_ms": 0.0,
+    "micro_mean_signed_snare_ms": 0.0,
+    "micro_mean_abs_snare_ms": 0.0,
+    "micro_mean_signed_kick_ms": 0.0,
+    "micro_mean_abs_kick_ms": 0.0,
+    "repetitiveness_kick_median": 1.0,
+    "repetitiveness_snare_median": 1.0,
+    "repetitiveness_chh_median": 1.0,
+    "recommendations": [
+      "Increase snare backbeat regularity to ~0.85\u20130.95 (current median 0.00). Bias snare to 16th indices 4 and 12 with \u00b11 tolerance.",
+      "Add snare ghost notes around e/a of beats to reach ~0.30\u20130.45 ghost rate (current median 0.00). Use low velocities (30\u201360% of snare median).",
+      "Hats microtiming near grid. Introduce small positive delay (+6\u201312 ms) for DnB shuffle feel.",
+      "Increase offbeat closed-hat hits on 8th upbeats to ~0.6\u20130.8 fraction (current median 0.00).",
+      "Snare patterns are highly repetitive (median identical-bar fraction 1.00). Add 4/8-bar fills (last bar density spike +30\u201360%)."
+    ]
+  }
+}
